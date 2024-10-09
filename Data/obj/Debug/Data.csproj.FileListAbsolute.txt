@@ -1,0 +1,9 @@
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\bin\Debug\Data.dll
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\bin\Debug\Data.pdb
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\bin\Debug\System.Data.SqlClient.dll
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\bin\Debug\System.Data.SqlClient.xml
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\obj\Debug\Data.csproj.AssemblyReference.cache
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\obj\Debug\Data.dll
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia\Data\obj\Debug\Data.pdb
