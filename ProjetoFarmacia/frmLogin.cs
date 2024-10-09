@@ -105,6 +105,51 @@ namespace ProjetoFarmacia
             
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (cbDocenteLogin.Checked)
+            {
+                DocenteCRUD docentecrud = new DocenteCRUD(_conexao);
+                string email = txbEmailLogin.Text;
+                string senha = txbSenhaLogin.Text;
+                if (docentecrud.LoginDocente(email, senha))
+                {
+                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal();
+                    this.Hide();
+                    frmtelaprincipal.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Email ou senha Incorretos!");
+                }
+            }
+            else
+            {
+                AlunoCRUD alunoscrud = new AlunoCRUD(_conexao);
+                string email = txbEmailLogin.Text;
+                string senha = txbSenhaLogin.Text;
+                if (alunoscrud.LoginUsuario(email, senha))
+                {
+                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal();
+                    this.Hide();
+                    frmtelaprincipal.ShowDialog();
+                    this.Close();
 
+                }
+                else
+                {
+                    MessageBox.Show("Email ou senha Incorretos!");
+                }
+            }
+        }
+
+        private void txbSenhaLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }

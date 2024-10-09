@@ -40,5 +40,38 @@ namespace Data
                 throw new Exception("Erro" + ex);
             }
         }
+        public bool LoginUsuario(string email, string senha)
+        {
+            bool LoginSucesso = false;
+            const string query = @"SELECT * FROM alunos WHERE email_aluno = @email AND senha_aluno = @senha";
+
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+
+                using (var comando = new SqlCommand(query, conexaobd))
+                {
+                    comando.Parameters.AddWithValue("@email", email);
+                    comando.Parameters.AddWithValue("@senha", senha);
+
+                    conexaobd.Open();
+
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            LoginSucesso = true;
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERRO", ex);
+            }
+
+            return LoginSucesso;
+        }
     }
 }

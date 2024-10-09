@@ -31,7 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabLogin = new System.Windows.Forms.TabPage();
             this.cbMostrarSenha = new System.Windows.Forms.CheckBox();
-            this.cbDocente = new System.Windows.Forms.CheckBox();
+            this.cbDocenteLogin = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txbSenhaLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             // 
             this.TabLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.TabLogin.Controls.Add(this.cbMostrarSenha);
-            this.TabLogin.Controls.Add(this.cbDocente);
+            this.TabLogin.Controls.Add(this.cbDocenteLogin);
             this.TabLogin.Controls.Add(this.btnLogin);
             this.TabLogin.Controls.Add(this.txbSenhaLogin);
             this.TabLogin.Controls.Add(this.label2);
@@ -91,16 +91,16 @@
             this.cbMostrarSenha.UseVisualStyleBackColor = true;
             this.cbMostrarSenha.CheckedChanged += new System.EventHandler(this.cbMostrarSenha_CheckedChanged);
             // 
-            // cbDocente
+            // cbDocenteLogin
             // 
-            this.cbDocente.AutoSize = true;
-            this.cbDocente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDocente.Location = new System.Drawing.Point(263, 188);
-            this.cbDocente.Name = "cbDocente";
-            this.cbDocente.Size = new System.Drawing.Size(130, 22);
-            this.cbDocente.TabIndex = 5;
-            this.cbDocente.Text = "É um Docente?";
-            this.cbDocente.UseVisualStyleBackColor = true;
+            this.cbDocenteLogin.AutoSize = true;
+            this.cbDocenteLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDocenteLogin.Location = new System.Drawing.Point(263, 188);
+            this.cbDocenteLogin.Name = "cbDocenteLogin";
+            this.cbDocenteLogin.Size = new System.Drawing.Size(130, 22);
+            this.cbDocenteLogin.TabIndex = 5;
+            this.cbDocenteLogin.Text = "É um Docente?";
+            this.cbDocenteLogin.UseVisualStyleBackColor = true;
             // 
             // btnLogin
             // 
@@ -111,6 +111,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txbSenhaLogin
             // 
@@ -119,6 +120,7 @@
             this.txbSenhaLogin.Name = "txbSenhaLogin";
             this.txbSenhaLogin.Size = new System.Drawing.Size(367, 29);
             this.txbSenhaLogin.TabIndex = 3;
+            this.txbSenhaLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbSenhaLogin_KeyDown);
             // 
             // label2
             // 
@@ -296,7 +298,7 @@
         private System.Windows.Forms.TextBox txbEmailCad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbNomeCad;
-        private System.Windows.Forms.CheckBox cbDocente;
+        private System.Windows.Forms.CheckBox cbDocenteLogin;
         private System.Windows.Forms.CheckBox cbMostrarSenha;
         private System.Windows.Forms.CheckBox cbMostrarSenhaCad;
         private System.Windows.Forms.CheckBox cbCheckDocente;
