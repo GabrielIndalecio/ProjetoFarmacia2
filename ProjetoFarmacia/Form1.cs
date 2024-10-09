@@ -25,8 +25,8 @@ namespace ProjetoFarmacia
 
         private void btnLista_Click(object sender, EventArgs e)
         {
-            var frmListadeCompras = new frmListadeCompras();
-            frmListadeCompras.ShowDialog();
+            var frmlistacompra = new frmListaCompra();
+            frmlistacompra.ShowDialog();
         }
     }
 }

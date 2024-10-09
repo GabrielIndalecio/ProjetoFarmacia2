@@ -17,6 +17,9 @@ namespace ProjetoFarmacia
             InitializeComponent();
         }
 
+        private void frmCadastro_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -41,4 +41,4 @@ C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\De
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.exe
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.pdb
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmCadastro.resources
-C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmListadeCompras.resources
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmListaCompra.resources

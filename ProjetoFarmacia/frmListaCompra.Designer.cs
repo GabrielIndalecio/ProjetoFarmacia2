@@ -1,6 +1,6 @@
 ﻿namespace ProjetoFarmacia
 {
-    partial class frmListadeCompras
+    partial class frmListaCompra
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,20 @@
             // lbLista
             // 
             this.lbLista.FormattingEnabled = true;
-            this.lbLista.Location = new System.Drawing.Point(12, 12);
+            this.lbLista.Location = new System.Drawing.Point(12, 15);
             this.lbLista.Name = "lbLista";
             this.lbLista.Size = new System.Drawing.Size(332, 420);
-            this.lbLista.TabIndex = 0;
+            this.lbLista.TabIndex = 1;
             // 
-            // frmListadeCompras
+            // frmListaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(356, 450);
             this.Controls.Add(this.lbLista);
-            this.Name = "frmListadeCompras";
-            this.Text = "frmListadeCompras";
+            this.Name = "frmListaCompra";
+            this.Text = "Lista de Compras";
             this.ResumeLayout(false);
 
         }

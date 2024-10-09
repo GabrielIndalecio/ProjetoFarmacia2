@@ -48,6 +48,8 @@
     <Compile Include="Alunos.cs" />
     <Compile Include="DocenteCRUD.cs" />
     <Compile Include="Docentes.cs" />
+    <Compile Include="ProdutoCRUD.cs" />
+    <Compile Include="Produtos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

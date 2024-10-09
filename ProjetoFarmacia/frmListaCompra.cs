@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjetoFarmacia
 {
-    public partial class frmListadeCompras : Form
+    public partial class frmListaCompra : Form
     {
-        public frmListadeCompras()
+        public frmListaCompra()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(1200, 300);
         }
     }
 }
