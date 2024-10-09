@@ -15,6 +15,7 @@ namespace ProjetoFarmacia
         public frmCadastro()
         {
             InitializeComponent();
+            txbDataEntradaProd.Text = DateTime.Now.ToString();
         }
 
         private void frmCadastro_Load(object sender, EventArgs e)

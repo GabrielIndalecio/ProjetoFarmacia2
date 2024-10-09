@@ -32,7 +32,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txbDataEntradaProd = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.mtbDataValidade = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Gramas(g)",
@@ -91,15 +92,15 @@
             this.textBox1.Size = new System.Drawing.Size(211, 26);
             this.textBox1.TabIndex = 25;
             // 
-            // maskedTextBox2
+            // txbDataEntradaProd
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(243, 295);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(89, 26);
-            this.maskedTextBox2.TabIndex = 24;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.txbDataEntradaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDataEntradaProd.Location = new System.Drawing.Point(243, 295);
+            this.txbDataEntradaProd.Mask = "00/00/0000";
+            this.txbDataEntradaProd.Name = "txbDataEntradaProd";
+            this.txbDataEntradaProd.Size = new System.Drawing.Size(89, 26);
+            this.txbDataEntradaProd.TabIndex = 24;
+            this.txbDataEntradaProd.ValidatingType = typeof(System.DateTime);
             // 
             // maskedTextBox1
             // 
@@ -256,7 +257,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.txbDataEntradaProd);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.mtbDataValidade);
             this.Controls.Add(this.label6);
@@ -284,7 +285,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txbDataEntradaProd;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.MaskedTextBox mtbDataValidade;
         private System.Windows.Forms.Label label6;
