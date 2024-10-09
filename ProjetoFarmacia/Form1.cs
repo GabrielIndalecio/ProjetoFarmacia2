@@ -16,5 +16,17 @@ namespace ProjetoFarmacia
         {
             InitializeComponent();
         }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            var cadastro = new frmCadastro();
+            cadastro.ShowDialog();
+        }
+
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+            var frmListadeCompras = new frmListadeCompras();
+            frmListadeCompras.ShowDialog();
+        }
     }
 }
