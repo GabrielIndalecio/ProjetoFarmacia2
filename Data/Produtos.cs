@@ -21,5 +21,9 @@ namespace Data
         public string datavalidade_medicamento { get; set; }
 
         public int lote_medicamento { get; set; }
+
+        public string data_fabricacao { get; set; }
+
+        public string data_entrada {  get; set; }
     }
 }

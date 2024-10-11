@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,8 @@ namespace Data
 
         public void IncluiProduto(Produtos produtos)
         {
-            const string query = @"INSERT INTO entrada_medicamento (nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento)
-                                    Values(@nome, @setor, @unidade, @estoque, @datavalidade, @lote)";
+            const string query = @"INSERT INTO entrada_medicamento (nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada)
+                                    Values(@nome, @setor, @unidade, @estoque, @datavalidade, @lote, @datafabricacao, @data_entrada)";
 
             try
             {
@@ -32,6 +33,8 @@ namespace Data
                     comandoSql.Parameters.AddWithValue("@estoque", produtos.estoque_medicamento);
                     comandoSql.Parameters.AddWithValue("@datavalidade", produtos.datavalidade_medicamento);
                     comandoSql.Parameters.AddWithValue("@lote", produtos.lote_medicamento);
+                    comandoSql.Parameters.AddWithValue("@datafabricacao", produtos.data_fabricacao);
+                    comandoSql.Parameters.AddWithValue("@data_entrada", produtos.data_entrada);
 
                     conexaobd.Open();
 
@@ -43,6 +46,48 @@ namespace Data
             {
                 throw new Exception("Erro", ex);
             }
+        }
+
+        public DataSet BuscarProduto(string pesquisa = "")
+        {
+            const string query = "Select * from entrada_medicamento Where nome_medicamento Like @pesquisa";
+
+            try
+            {
+                using(var conexaobd = new SqlConnection(_conexao))
+                using(var comandosql = new SqlCommand(query, conexaobd))
+                using(var adaptador = new SqlDataAdapter(comandosql))
+                {
+                    string paramentroPesquisa = $"%{pesquisa}%";
+                    comandosql.Parameters.AddWithValue("@pesquisa", paramentroPesquisa);
+                    conexaobd.Open();
+                    var dsProdutos = new DataSet();
+                    adaptador.Fill(dsProdutos, "entrada_medicamento");
+                    return dsProdutos;
+                }
+            }
+            catch(Exception ex) { throw new Exception($"Erro ao Buscar Produto {ex.Message}", ex); }
+        }
+
+        public DataSet BuscarSetor(string Pesquisar = "")
+        {
+            const string query = "Select * from entrada_medicamento Where setor_medicamento Like @Pesquisar";
+
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using (var comandosql = new SqlCommand(query, conexaobd))
+                using (var adaptador = new SqlDataAdapter(comandosql))
+                {
+                    string paramentroPesquisa = $"%{Pesquisar}%";
+                    comandosql.Parameters.AddWithValue("@Pesquisar", paramentroPesquisa);
+                    conexaobd.Open();
+                    var dsProdutosSetor = new DataSet();
+                    adaptador.Fill(dsProdutosSetor, "entrada_medicamento");
+                    return dsProdutosSetor;
+                }
+            }
+            catch (Exception ex) { throw new Exception($"Erro ao Buscar Produto {ex.Message}", ex); }
         }
     }
 }
