@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Data
 {
@@ -70,6 +71,36 @@ namespace Data
             }
 
             return LoginSucesso;
+        }
+        public string NomeLogin(string email, string senha)
+        {
+            string nomeUsuario = null;
+            const string query = @"SELECT nome_docente FROM Docentes WHERE email_docente = @email AND senha_docente = @senha";
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaobd))
+                {
+                    comando.Parameters.AddWithValue("@email", email);
+                    comando.Parameters.AddWithValue("@senha", senha);
+
+                    conexaobd.Open();
+
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            nomeUsuario = reader["nome_docente"].ToString();
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro {ex.Message}", ex);
+            }
+            return nomeUsuario;
         }
     }
 }

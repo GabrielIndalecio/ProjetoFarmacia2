@@ -14,9 +14,13 @@ namespace ProjetoFarmacia
     public partial class frmCadastro : Form
     {
         string _conexao = ProjetoFarmacia.Properties.Settings.Default.conexao;
-        public frmCadastro()
+
+        private string nomeUsuario;
+        public frmCadastro(string nomeUsuario)
         {
             InitializeComponent();
+            this.nomeUsuario = nomeUsuario;
+            txtNomeResp.Text = nomeUsuario;
             txbDataEntradaProd.Text = DateTime.Now.ToString();
         }
 
@@ -42,30 +46,68 @@ namespace ProjetoFarmacia
 
         private void btnSalvarCad_Click(object sender, EventArgs e)
         {
+
             Produtos produtos = new Produtos();
             ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
-
-            try
+            ProdutosControlados produtoscontrolados = new ProdutosControlados();
+            ProdutosControladosCRUD produtoscontroladocrud = new ProdutosControladosCRUD(_conexao);
+            if (cbProdutoControlado.Checked)
             {
-                produtos.nome_medicamento = txbNomeProduto.Text;
-                if (rbMateria.Checked) { produtos.setor_medicamento = rbMateria.Text; }
-                if (rbMaterialConsumo.Checked) { produtos.setor_medicamento = rbMaterialConsumo.Text; }
-                if (rbUtensilio.Checked) { produtos.setor_medicamento=rbUtensilio.Text; }
-                if (cbUnidade.SelectedIndex != 4) { produtos.unidade_medicamento = cbUnidade.Text; } else { produtos.unidade_medicamento = txbUnidadeOutros.Text; }
-                produtos.estoque_medicamento = Convert.ToInt32(txbQuantidade.Text);
-                produtos.datavalidade_medicamento = mtbDataValidade.Text;
-                produtos.data_fabricacao = mtbFabricacao.Text;
-                produtos.data_entrada = txbDataEntradaProd.Text;
-                produtos.lote_medicamento = Convert.ToInt32(txbLoteCad.Text);
+                try
+                {
+                    produtoscontrolados.nome_medicamento_controlado = txbNomeProduto.Text;
+                    if (rbMateria.Checked) { produtoscontrolados.setor_medicamento_controlado = rbMateria.Text; }
+                    if (rbMaterialConsumo.Checked) { produtoscontrolados.setor_medicamento_controlado = rbMaterialConsumo.Text; }
+                    if (rbUtensilio.Checked) { produtoscontrolados.setor_medicamento_controlado = rbUtensilio.Text; }
+                    if (cbUnidade.SelectedIndex != 4) { produtoscontrolados.unidade_medicamento_controlado = cbUnidade.Text; } else { produtoscontrolados.unidade_medicamento_controlado = txbUnidadeOutros.Text; }
+                    produtoscontrolados.estoque_medicamento_controlado = Convert.ToInt32(txbQuantidade.Text);
+                    produtoscontrolados.datavalidade_medicamento_controlado = mtbDataValidade.Text;
+                    produtoscontrolados.data_fabricacao_controlado = mtbFabricacao.Text;
+                    produtoscontrolados.data_entrada_controlado = txbDataEntradaProd.Text;
+                    produtoscontrolados.lote_medicamento_controlado = Convert.ToInt32(txbLoteCad.Text);
+                    produtoscontrolados.responsavel_medicamento_controlado = txtNomeResp.Text;
 
-                produtocrud.IncluiProduto(produtos);
+                    produtoscontroladocrud.IncluiProdutoControlado(produtoscontrolados);
 
-                MessageBox.Show("Cadastrado com Sucesso!");
+                    MessageBox.Show("Cadastrado com Sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro", ex);
+                }
+                
             }
-            catch(Exception ex)
+            else
             {
-                throw new Exception("Erro", ex);
+                try
+                {
+                    produtos.nome_medicamento = txbNomeProduto.Text;
+                    if (rbMateria.Checked) { produtos.setor_medicamento = rbMateria.Text; }
+                    if (rbMaterialConsumo.Checked) { produtos.setor_medicamento = rbMaterialConsumo.Text; }
+                    if (rbUtensilio.Checked) { produtos.setor_medicamento = rbUtensilio.Text; }
+                    if (cbUnidade.SelectedIndex != 4) { produtos.unidade_medicamento = cbUnidade.Text; } else { produtos.unidade_medicamento = txbUnidadeOutros.Text; }
+                    produtos.estoque_medicamento = Convert.ToInt32(txbQuantidade.Text);
+                    produtos.datavalidade_medicamento = mtbDataValidade.Text;
+                    produtos.data_fabricacao = mtbFabricacao.Text;
+                    produtos.data_entrada = txbDataEntradaProd.Text;
+                    produtos.lote_medicamento = Convert.ToInt32(txbLoteCad.Text);
+                    produtos.responsavel_medicamento = txtNomeResp.Text;
+
+                    produtocrud.IncluiProduto(produtos);
+
+                    MessageBox.Show("Cadastrado com Sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro", ex);
+                }
             }
+            
+
+        }
+
+        private void cbProdutoControlado_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

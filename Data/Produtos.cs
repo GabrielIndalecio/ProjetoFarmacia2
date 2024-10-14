@@ -25,5 +25,7 @@ namespace Data
         public string data_fabricacao { get; set; }
 
         public string data_entrada {  get; set; }
+
+        public string responsavel_medicamento { get; set; }
     }
 }
