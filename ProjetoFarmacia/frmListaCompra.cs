@@ -17,16 +17,27 @@ namespace ProjetoFarmacia
         public frmListaCompra()
         {
             InitializeComponent();
-            ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
-            List<string> produtosVencidos = produtocrud.DataValidadeProduto();
-            lbLista.Items.Clear();
-            foreach (var prod in  produtosVencidos)
+            ExibirValidade();
+            
+        }
+        private void ExibirValidade()
+        {
+            ProdutoCRUD prodcrud = new ProdutoCRUD(_conexao);
+            DataTable produtos = prodcrud.Puxardadosvalidade();
+
+            DateTime dataatual = DateTime.Now;
+
+            int diasparavencer = 20;
+
+            foreach (DataRow row in produtos.Rows) 
             {
-                lbLista.Items.Add(prod);
-            }
-            if (produtosVencidos.Count == 0) 
-            {
-                MessageBox.Show("Não há produtos vencidos.");
+                DateTime validade = Convert.ToDateTime(row["Validade"]);
+                string nomeProduto = row["Nome"].ToString();
+
+                if((validade - dataatual).TotalDays <= diasparavencer)
+                {
+                    lbLista.Items.Add($"{nomeProduto} - Vence em: {validade.ToShortDateString()}");
+                }
             }
         }
     }

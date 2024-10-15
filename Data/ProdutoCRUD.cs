@@ -52,7 +52,11 @@ namespace Data
 
         public DataSet BuscarProduto(string pesquisa = "")
         {
-            const string query = "Select * from entrada_medicamento Where nome_medicamento Like @pesquisa";
+            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento
+                                    FROM entrada_medicamento WHERE nome_medicamento LIKE @pesquisa
+                                    UNION ALL
+                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado
+                                    FROM medicamento_controlado WHERE nome_medicamento_controlado LIKE @pesquisa";
 
             try
             {
@@ -73,7 +77,11 @@ namespace Data
 
         public DataSet BuscarSetor(string Pesquisar = "")
         {
-            const string query = "Select * from entrada_medicamento Where setor_medicamento Like @Pesquisar";
+            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento
+                                    FROM entrada_medicamento WHERE setor_medicamento LIKE @Pesquisar
+                                    UNION ALL
+                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado
+                                    FROM medicamento_controlado WHERE setor_medicamento_controlado LIKE @Pesquisar";
 
             try
             {
@@ -92,9 +100,9 @@ namespace Data
             catch (Exception ex) { throw new Exception($"Erro ao Buscar Produto {ex.Message}", ex); }
         }
        
-        public Produtos ObtemProduto(int codigoProduto)
+        public Produtos ObtemProduto(string codigoProduto)
         {
-            const string query = "Select * from entrada_medicamento where id_produto = @cod";
+            const string query = "Select * from entrada_medicamento where nome_medicamento = @cod";
             Produtos produtos = null;
             try
             {
@@ -153,36 +161,46 @@ namespace Data
                 throw new Exception ($"Erro {ex.Message}", ex);
             }
         }
-        public List<string> DataValidadeProduto()
+        public DataTable Puxardadosvalidade()
         {
-            List<string> produtosvencidos = new List<string>();
-            
-            const string query = "SELECT nome_medicamento, datavalidade_medicamento FROM entrada_medicamento";
+            DataTable datatable = new DataTable();
+
+            const string query = @"SELECT nome_medicamento AS Nome, datavalidade_medicamento AS Validade FROM entrada_medicamento UNION ALL SELECT nome_medicamento_controlado AS Nome, datavalidade_medicamento_controlado AS Validade FROM medicamento_controlado";
 
             try
             {
-                using(var conexaobd = new SqlConnection(_conexao))
-                using (var comando = new SqlCommand(query, conexaobd))
-                using (SqlDataReader reader = comando.ExecuteReader())
+                using (var conexaobd = new SqlConnection(_conexao))
+                using(var comandosql = new SqlCommand(query, conexaobd))
+                using(SqlDataAdapter adapter = new SqlDataAdapter(comandosql))
                 {
-                    while(reader.Read())
-                    {
-                        string nomeProduto = reader.GetString(0);
-                        DateTime datavalidade = reader.GetDateTime(1);
-
-                        if(datavalidade < DateTime.Now)
-                        {
-                            produtosvencidos.Add(nomeProduto);
-                        }
-                    }
+                    adapter.Fill(datatable);
                 }
-                
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception($"Erro {ex.Message}", ex);
             }
-            return produtosvencidos;
+            return datatable;
+        }
+        public DataSet BuscaUnicaProduto(string pesquisar="")
+        {
+            const string query = @"SELECT * FROM entrada_medicamento WHERE nome_medicamento Like @pesquisar";
+
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using (var comandosql = new SqlCommand(query, conexaobd))
+                using (var adaptador = new SqlDataAdapter(comandosql))
+                {
+                    string paramentroPesquisa = $"%{pesquisar}%";
+                    comandosql.Parameters.AddWithValue("@pesquisar", paramentroPesquisa);
+                    conexaobd.Open();
+                    var dsProdutos = new DataSet();
+                    adaptador.Fill(dsProdutos, "entrada_medicamento");
+                    return dsProdutos;
+                }
+            }
+            catch (Exception ex) { throw new Exception($"Erro ao Buscar Produto {ex.Message}", ex); }
         }
     }
 }

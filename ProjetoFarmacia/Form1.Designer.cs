@@ -51,6 +51,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txbNomePesquisa = new System.Windows.Forms.TextBox();
             this.btnInformacao = new System.Windows.Forms.Button();
+            this.btnResetFiltro = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbProdutosControlados = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.sidebar.SuspendLayout();
@@ -61,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFlechaExpand)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProdutos
@@ -74,6 +80,7 @@
             this.dgvProdutos.Size = new System.Drawing.Size(869, 646);
             this.dgvProdutos.TabIndex = 1;
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
+            this.dgvProdutos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProdutos_CellFormatting);
             // 
             // groupBox2
             // 
@@ -295,12 +302,77 @@
             this.btnInformacao.Visible = false;
             this.btnInformacao.Click += new System.EventHandler(this.btnInformacao_Click);
             // 
+            // btnResetFiltro
+            // 
+            this.btnResetFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.btnResetFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnResetFiltro.Image")));
+            this.btnResetFiltro.Location = new System.Drawing.Point(309, 222);
+            this.btnResetFiltro.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetFiltro.Name = "btnResetFiltro";
+            this.btnResetFiltro.Size = new System.Drawing.Size(44, 40);
+            this.btnResetFiltro.TabIndex = 17;
+            this.btnResetFiltro.UseVisualStyleBackColor = false;
+            this.btnResetFiltro.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.rbProdutosControlados);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbTodos);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox1.Location = new System.Drawing.Point(100, 357);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 121);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtro";
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 25);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(71, 24);
+            this.rbTodos.TabIndex = 3;
+            this.rbTodos.TabStop = true;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 55);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(91, 24);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Produtos";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rbProdutosControlados
+            // 
+            this.rbProdutosControlados.AutoSize = true;
+            this.rbProdutosControlados.Location = new System.Drawing.Point(6, 85);
+            this.rbProdutosControlados.Name = "rbProdutosControlados";
+            this.rbProdutosControlados.Size = new System.Drawing.Size(181, 24);
+            this.rbProdutosControlados.TabIndex = 5;
+            this.rbProdutosControlados.TabStop = true;
+            this.rbProdutosControlados.Text = "Produtos Controlados";
+            this.rbProdutosControlados.UseVisualStyleBackColor = true;
+            this.rbProdutosControlados.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
             // frmTelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1254, 681);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnResetFiltro);
             this.Controls.Add(this.btnInformacao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_NomePrincipal);
@@ -327,6 +399,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFlechaExpand)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,6 +428,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbNomePesquisa;
         private System.Windows.Forms.Button btnInformacao;
+        private System.Windows.Forms.Button btnResetFiltro;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbProdutosControlados;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbTodos;
     }
 }
 

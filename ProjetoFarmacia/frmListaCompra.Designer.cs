@@ -33,10 +33,12 @@
             // 
             // lbLista
             // 
+            this.lbLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLista.FormattingEnabled = true;
+            this.lbLista.ItemHeight = 20;
             this.lbLista.Location = new System.Drawing.Point(12, 15);
             this.lbLista.Name = "lbLista";
-            this.lbLista.Size = new System.Drawing.Size(332, 420);
+            this.lbLista.Size = new System.Drawing.Size(332, 404);
             this.lbLista.TabIndex = 1;
             // 
             // frmListaCompra

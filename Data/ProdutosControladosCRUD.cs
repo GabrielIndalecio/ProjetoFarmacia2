@@ -94,9 +94,9 @@ namespace Data
             catch (Exception ex) { throw new Exception($"Erro ao Buscar Produto Controlado {ex.Message}", ex); }
         }
 
-        public ProdutosControlados ObtemProdutoControlado(int codigoProduto)
+        public ProdutosControlados ObtemProdutoControlado(string codigoProduto)
         {
-            const string query = "Select * from medicamento_controlado where id_produto = @cod";
+            const string query = "Select * from medicamento_controlado where nome_medicamento_controlado = @cod";
             ProdutosControlados produtos = null;
             try
             {
@@ -111,16 +111,16 @@ namespace Data
                         {
                             produtos = new ProdutosControlados
                             {
-                                id_produto_controlado = Convert.ToInt32(reader["id_produto"]),
-                                nome_medicamento_controlado = reader["nome_medicamento"].ToString(),
-                                setor_medicamento_controlado = reader["setor_medicamento"].ToString(),
-                                unidade_medicamento_controlado = reader["unidade_medicamento"].ToString(),
-                                estoque_medicamento_controlado = Convert.ToInt32(reader["estoque_medicamento"]),
-                                datavalidade_medicamento_controlado = reader["datavalidade_medicamento"].ToString(),
-                                lote_medicamento_controlado = Convert.ToInt32(reader["lote_medicamento"]),
-                                data_fabricacao_controlado = reader["data_fabricacao"].ToString(),
-                                data_entrada_controlado = reader["data_entrada"].ToString(),
-                                responsavel_medicamento_controlado = reader["responsavel_medicamento"].ToString()
+                                id_produto_controlado = Convert.ToInt32(reader["id_produto_controlado"]),
+                                nome_medicamento_controlado = reader["nome_medicamento_controlado"].ToString(),
+                                setor_medicamento_controlado = reader["setor_medicamento_controlado"].ToString(),
+                                unidade_medicamento_controlado = reader["unidade_medicamento_controlado"].ToString(),
+                                estoque_medicamento_controlado = Convert.ToInt32(reader["estoque_medicamento_controlado"]),
+                                datavalidade_medicamento_controlado = reader["datavalidade_medicamento_controlado"].ToString(),
+                                lote_medicamento_controlado = Convert.ToInt32(reader["lote_medicamento_controlado"]),
+                                data_fabricacao_controlado = reader["data_fabricacao_controlado"].ToString(),
+                                data_entrada_controlado = reader["data_entrada_controlado"].ToString(),
+                                responsavel_medicamento_controlado = reader["responsavel_medicamento_controlado"].ToString()
                             };
                         }
                     }
