@@ -153,5 +153,19 @@ namespace ProjetoFarmacia
                 btnLogin_Click(sender, e);
             }
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = true;
+            lblLogin.Text = "Cadastro";
+            panelLogin.Visible = false;
+        }
+
+        private void lblCadastroLogin_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = false;
+            lblLogin.Text = "Login";
+            panelLogin.Visible = true;
+        }
     }
 }

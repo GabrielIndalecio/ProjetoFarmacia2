@@ -43,12 +43,12 @@ namespace Data
                     comandoSql.ExecuteNonQuery();
                 } // O codigo mais porco!
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro", ex);
             } // Baiano safado
         }
-        
+
         public DataSet BuscarProdutoControlado(string pesquisa = "")
         {
             const string query = "Select * From medicamento_controlado Where nome_medicamento_controlado Like @pesquisa";
@@ -125,7 +125,8 @@ namespace Data
                         }
                     }
                 }
-            }catch(Exception ex) { throw new Exception("erro", ex); }
+            }
+            catch (Exception ex) { throw new Exception("erro", ex); }
             return produtos;
         }
         public void ExcluirProduto(int codigo)
@@ -148,6 +149,45 @@ namespace Data
             catch (Exception ex)
             {
                 throw new Exception($"Erro {ex.Message}", ex);
+            }
+        }
+        public void AlterarProdutoControlado(ProdutosControlados prodcontrol)
+        {
+            const string query = @"update medicamento_controlado set 
+                                    nome_medicamento_controlado = @nome,
+                                    setor_medicamento_controlado = @setor,
+                                    unidade_medicamento_controlado = @unidade,
+                                    estoque_medicamento_controlado = @quantidade,
+                                    datavalidade_medicamento_controlado = @datavalidade,
+                                    lote_medicamento_controlado = @lote,
+                                    data_fabricacao_controlado = @fabricacao,
+                                    data_entrada_controlado = @entrada,
+                                    responsavel_medicamento_controlado = @responsavel
+                                    where id_produto_controlado = @id";
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using (var comandosql = new SqlCommand(query, conexaobd))
+                {
+                    comandosql.Parameters.AddWithValue("@setor", prodcontrol.setor_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@unidade", prodcontrol.unidade_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@quantidade", prodcontrol.estoque_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@datavalidade", prodcontrol.datavalidade_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@lote", prodcontrol.lote_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@fabricacao", prodcontrol.data_fabricacao_controlado);
+                    comandosql.Parameters.AddWithValue("@entrada", prodcontrol.data_entrada_controlado);
+                    comandosql.Parameters.AddWithValue("@responsavel", prodcontrol.responsavel_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@nome", prodcontrol.nome_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@id", prodcontrol.id_produto_controlado);
+
+                    conexaobd.Open();
+
+                    comandosql.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro" + ex);
             }
         }
     }

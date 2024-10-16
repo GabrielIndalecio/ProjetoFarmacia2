@@ -202,5 +202,44 @@ namespace Data
             }
             catch (Exception ex) { throw new Exception($"Erro ao Buscar Produto {ex.Message}", ex); }
         }
+        public void AlterarProduto(Produtos produtos)
+        {
+            const string query = @"update entrada_medicamento set 
+                                    nome_medicamento = @nome,
+                                    setor_medicamento = @setor1,
+                                    unidade_medicamento = @unidade,
+                                    estoque_medicamento = @quantidade,
+                                    datavalidade_medicamento = @datavalidade,
+                                    lote_medicamento = @lote,
+                                    data_fabricacao = @fabricacao,
+                                    data_entrada = @entrada,
+                                    responsavel_medicamento = @responsavel
+                                    where id_produto = @id";
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using(var comandosql = new SqlCommand( query, conexaobd))
+                {
+                    comandosql.Parameters.AddWithValue("@setor1", produtos.setor_medicamento);
+                    comandosql.Parameters.AddWithValue("@unidade", produtos.unidade_medicamento);
+                    comandosql.Parameters.AddWithValue("@quantidade", produtos.estoque_medicamento);
+                    comandosql.Parameters.AddWithValue("@datavalidade", produtos.datavalidade_medicamento);
+                    comandosql.Parameters.AddWithValue("@lote", produtos.lote_medicamento);
+                    comandosql.Parameters.AddWithValue("@fabricacao", produtos.data_fabricacao);
+                    comandosql.Parameters.AddWithValue("@entrada", produtos.data_entrada);
+                    comandosql.Parameters.AddWithValue("@responsavel", produtos.responsavel_medicamento);
+                    comandosql.Parameters.AddWithValue("@nome", produtos.nome_medicamento);
+                    comandosql.Parameters.AddWithValue("@id", produtos.id_produto);
+
+                    conexaobd.Open();
+
+                    comandosql.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro" + ex);
+            }
+        }
     }
 }
