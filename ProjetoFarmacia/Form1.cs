@@ -34,10 +34,12 @@ namespace ProjetoFarmacia
         {
             InitializeComponent();
             this.nomeUsuario = nomeUsuario;
-            lbl_NomePrincipal.Text = $"Bem-Vindo de volta, {nomeUsuario}!";
+            lbl_NomePrincipal.Text = $"Bem-Vindo de volta,\n {nomeUsuario}!";
             ListarProduto();
             ConfigurarDataGrid();
             this.KeyDown += new KeyEventHandler(txbNomePesquisa_KeyDown);
+            BackColor = SystemColors.AppWorkspace;
+            
 
         }
 
@@ -246,10 +248,12 @@ namespace ProjetoFarmacia
             if (dgvProdutos.SelectedRows.Count > 0)
             {
                 btnInformacao.Visible = true;
+                btnManiBaixa.Visible = true;
             }
             else if(dgvProdutos.SelectedColumns.Count < 0)
             {
                 btnInformacao.Visible = false;
+                btnManiBaixa.Visible= false;
             }
         }
 
@@ -287,15 +291,23 @@ namespace ProjetoFarmacia
                     {
                         TimeSpan diferenca = dataValidade - DateTime.Now;
 
-                        if (diferenca.Days < 20)
+                        if (diferenca.Days < 20 && diferenca.Days >= 0)
                         {
                             dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
-                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+
                         }
+                        else if(diferenca.Days < 0)
+                        {
+                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                        }
+                        
                     }
+                    
                 }
                 
             }
+            
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -323,6 +335,17 @@ namespace ProjetoFarmacia
         {
             ListarProduto();
             ConfigurarDataGrid();
+        }
+
+        private void btnManiBaixa_Click(object sender, EventArgs e)
+        {
+            if (dgvProdutos.SelectedRows.Count > 0)
+            {
+                string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                frmManipulados manipulados = new frmManipulados(codigo);
+                manipulados.ShowDialog();
+                ListarProduto();
+            }
         }
     }
 }

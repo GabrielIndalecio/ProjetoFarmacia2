@@ -46,7 +46,7 @@ namespace ProjetoFarmacia
 
         private void btnSalvarCad_Click(object sender, EventArgs e)
         {
-
+            //if (txbNomeProduto.Text == string.Empty && txbQuantidade.Text == string.Empty && txbUnidadeOutros.Text == string.Empty && mtbDataValidade.Text == string.Empty)
             Produtos produtos = new Produtos();
             ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
             ProdutosControlados produtoscontrolados = new ProdutosControlados();
@@ -73,7 +73,7 @@ namespace ProjetoFarmacia
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erro", ex);
+                    MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }
@@ -99,7 +99,7 @@ namespace ProjetoFarmacia
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erro", ex);
+                    MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             

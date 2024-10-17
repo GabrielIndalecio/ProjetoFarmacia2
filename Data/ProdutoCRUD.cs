@@ -240,6 +240,26 @@ namespace Data
             {
                 throw new Exception("Erro" + ex);
             }
+
+        }
+        public void DarBaixa(Produtos produtos)
+        {
+            const string query = @"update entrada_medicamento set estoque_medicamento = @quantidade where id_produto = @id";
+
+            try
+            {
+                using (var conexaobd = new SqlConnection(_conexao))
+                using (var comandosql = new SqlCommand(query, conexaobd))
+                {
+                    comandosql.Parameters.AddWithValue("@quantidade", produtos.estoque_medicamento);
+                    comandosql.Parameters.AddWithValue("@id", produtos.id_produto);
+
+                    conexaobd.Open();
+
+                    comandosql.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { throw new Exception("Erro" + ex); }
         }
     }
 }

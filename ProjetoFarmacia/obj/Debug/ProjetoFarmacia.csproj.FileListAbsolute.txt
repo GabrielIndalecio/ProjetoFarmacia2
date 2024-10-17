@@ -180,3 +180,4 @@ C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\De
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaInformacao.resources
+C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmManipulados.resources

@@ -190,5 +190,27 @@ namespace Data
                 throw new Exception("Erro" + ex);
             }
         }
+        public void DarBaixaControlado(ProdutosControlados produtoscontrolados)
+        {
+            const string query = @"update medicamento_controlado set estoque_medicamento_controlado = @quantidade where id_produto_controlado = @id";
+
+            try
+            {
+                using(var conexaobd = new SqlConnection(_conexao))
+                using(var comandosql = new SqlCommand(query, conexaobd))
+                {
+                    comandosql.Parameters.AddWithValue("@quantidade", produtoscontrolados.estoque_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@id", produtoscontrolados.id_produto_controlado);
+
+                    conexaobd.Open();
+
+                    comandosql.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro" + ex);
+            }
+        }
     }
 }

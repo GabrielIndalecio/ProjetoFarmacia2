@@ -53,9 +53,11 @@
             this.btnInformacao = new System.Windows.Forms.Button();
             this.btnResetFiltro = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rbProdutosControlados = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
+            this.btnManiBaixa = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.sidebar.SuspendLayout();
@@ -89,7 +91,7 @@
             this.groupBox2.Controls.Add(this.rbUtensilios);
             this.groupBox2.Controls.Add(this.rbMateria);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(97, 213);
+            this.groupBox2.Location = new System.Drawing.Point(97, 222);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(182, 113);
             this.groupBox2.TabIndex = 4;
@@ -144,6 +146,8 @@
             // 
             // sidebar
             // 
+            this.sidebar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.sidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
@@ -263,7 +267,7 @@
             this.lbl_NomePrincipal.AutoSize = true;
             this.lbl_NomePrincipal.BackColor = System.Drawing.Color.Transparent;
             this.lbl_NomePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomePrincipal.Location = new System.Drawing.Point(96, 89);
+            this.lbl_NomePrincipal.Location = new System.Drawing.Point(96, 22);
             this.lbl_NomePrincipal.Name = "lbl_NomePrincipal";
             this.lbl_NomePrincipal.Size = new System.Drawing.Size(57, 20);
             this.lbl_NomePrincipal.TabIndex = 13;
@@ -274,7 +278,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 140);
+            this.label1.Location = new System.Drawing.Point(96, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 0;
@@ -322,36 +326,12 @@
             this.groupBox1.Controls.Add(this.rbTodos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(100, 357);
+            this.groupBox1.Location = new System.Drawing.Point(97, 364);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 121);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtro";
-            // 
-            // rbTodos
-            // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(6, 25);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(71, 24);
-            this.rbTodos.TabIndex = 3;
-            this.rbTodos.TabStop = true;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseVisualStyleBackColor = true;
-            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 55);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(91, 24);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Produtos";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.groupBox1.Text = "Categoria";
             // 
             // rbProdutosControlados
             // 
@@ -365,12 +345,60 @@
             this.rbProdutosControlados.UseVisualStyleBackColor = true;
             this.rbProdutosControlados.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 55);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(91, 24);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Produtos";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(6, 25);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(71, 24);
+            this.rbTodos.TabIndex = 3;
+            this.rbTodos.TabStop = true;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
+            // 
+            // btnManiBaixa
+            // 
+            this.btnManiBaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManiBaixa.Location = new System.Drawing.Point(97, 510);
+            this.btnManiBaixa.Name = "btnManiBaixa";
+            this.btnManiBaixa.Size = new System.Drawing.Size(247, 38);
+            this.btnManiBaixa.TabIndex = 21;
+            this.btnManiBaixa.Text = "Manipulação / Baixa";
+            this.btnManiBaixa.UseVisualStyleBackColor = true;
+            this.btnManiBaixa.Visible = false;
+            this.btnManiBaixa.Click += new System.EventHandler(this.btnManiBaixa_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(95, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 25);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Filtros:";
+            // 
             // frmTelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1254, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnManiBaixa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnResetFiltro);
             this.Controls.Add(this.btnInformacao);
@@ -433,6 +461,8 @@
         private System.Windows.Forms.RadioButton rbProdutosControlados;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rbTodos;
+        private System.Windows.Forms.Button btnManiBaixa;
+        private System.Windows.Forms.Label label2;
     }
 }
 

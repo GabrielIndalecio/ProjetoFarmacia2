@@ -343,7 +343,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmCadastro";
-            this.Text = "frmCadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.gpsetor.ResumeLayout(false);
             this.gpsetor.PerformLayout();
