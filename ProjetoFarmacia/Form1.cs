@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,17 +15,37 @@ namespace ProjetoFarmacia
     public partial class frmTelaPrincipal : Form
     {
         string _conexao = ProjetoFarmacia.Properties.Settings.Default.conexao;
-        public frmTelaPrincipal()
+        bool teste;
+        bool sidebarExpand;
+
+        private string nomeUsuario;
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+            (
+                int nLeft,
+                int nTop,
+                int nRight,
+                int nBotton,
+                int nWidhtEllipse,
+                int nHeightEllipse
+            );
+        public frmTelaPrincipal(string nomeUsuario)
         {
             InitializeComponent();
+            this.nomeUsuario = nomeUsuario;
+            lbl_NomePrincipal.Text = $"Bem-Vindo de volta,\n {nomeUsuario}!";
             ListarProduto();
             ConfigurarDataGrid();
             this.KeyDown += new KeyEventHandler(txbNomePesquisa_KeyDown);
+            BackColor = SystemColors.AppWorkspace;
+            
+
         }
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            var cadastro = new frmCadastro();
+            frmCadastro cadastro = new frmCadastro(nomeUsuario);
             cadastro.ShowDialog();
             ListarProduto();
         }
@@ -49,6 +70,7 @@ namespace ProjetoFarmacia
             dgvProdutos.Columns["lote_medicamento"].HeaderText = "Lote";
             dgvProdutos.Columns["data_fabricacao"].HeaderText = "Fabricação";
             dgvProdutos.Columns["data_entrada"].HeaderText = "Entrada";
+            dgvProdutos.Columns["responsavel_medicamento"].Visible = false;
 
             dgvProdutos.Columns["nome_medicamento"].DisplayIndex = 0;
             dgvProdutos.Columns["setor_medicamento"].DisplayIndex = 1;
@@ -59,17 +81,62 @@ namespace ProjetoFarmacia
             dgvProdutos.Columns["data_fabricacao"].DisplayIndex = 6;
             dgvProdutos.Columns["data_entrada"].DisplayIndex = 7;
         }
+        private void ConfigurarDataGridControlado()
+        {
+            dgvProdutos.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+
+            dgvProdutos.RowHeadersWidth = 25;
+
+            dgvProdutos.Columns["id_produto_controlado"].Visible = false;
+            dgvProdutos.Columns["nome_medicamento_controlado"].HeaderText = "Nome";
+            dgvProdutos.Columns["setor_medicamento_controlado"].HeaderText = "Setor";
+            dgvProdutos.Columns["unidade_medicamento_controlado"].HeaderText = "Unidade";
+            dgvProdutos.Columns["estoque_medicamento_controlado"].HeaderText = "Estoque";
+            dgvProdutos.Columns["datavalidade_medicamento_controlado"].HeaderText = "Validade";
+            dgvProdutos.Columns["lote_medicamento_controlado"].HeaderText = "Lote";
+            dgvProdutos.Columns["data_fabricacao_controlado"].HeaderText = "Fabricação";
+            dgvProdutos.Columns["data_entrada_controlado"].HeaderText = "Entrada";
+            dgvProdutos.Columns["responsavel_medicamento_controlado"].Visible = false;
+
+            dgvProdutos.Columns["nome_medicamento_controlado"].DisplayIndex = 0;
+            dgvProdutos.Columns["setor_medicamento_controlado"].DisplayIndex = 1;
+            dgvProdutos.Columns["unidade_medicamento_controlado"].DisplayIndex = 2;
+            dgvProdutos.Columns["estoque_medicamento_controlado"].DisplayIndex = 3;
+            dgvProdutos.Columns["datavalidade_medicamento_controlado"].DisplayIndex = 4;
+            dgvProdutos.Columns["lote_medicamento_controlado"].DisplayIndex = 5;
+            dgvProdutos.Columns["data_fabricacao_controlado"].DisplayIndex = 6;
+            dgvProdutos.Columns["data_entrada_controlado"].DisplayIndex = 7;
+        }
         
         private void ListarProduto()
         {
+            
             ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
-
             string busca = txbNomePesquisa.Text.ToString();
-
             DataSet dsProduto = new DataSet();
             dsProduto = produtocrud.BuscarProduto(busca);
-            dgvProdutos.DataSource = dsProduto;
-            dgvProdutos.DataMember = "entrada_medicamento";
+            dgvProdutos.DataSource = dsProduto.Tables[0];
+            
+        }
+
+        private void ListarProdutoControlado()
+        {
+           ProdutosControladosCRUD prodctrcrud = new ProdutosControladosCRUD(_conexao);
+            string busca2 = txbNomePesquisa.Text.ToString();
+            DataSet dsProduto2 = new DataSet();
+            dsProduto2 = prodctrcrud.BuscarProdutoControlado(busca2);
+            dgvProdutos.DataSource = dsProduto2;
+            dgvProdutos.DataMember = "medicamento_controlado";
+
+        }
+        private void ListarProdutosEntrada()
+        {
+            ProdutoCRUD prodcrud = new ProdutoCRUD(_conexao);
+            string busca3 = txbNomePesquisa.Text.ToString();
+            DataSet dsProduto3 = new DataSet();
+            dsProduto3 = prodcrud.BuscaUnicaProduto(busca3);
+            dgvProdutos.DataSource= dsProduto3.Tables[0];
+            
         }
 
         private void txbNomePesquisa_KeyDown(object sender, KeyEventArgs e)
@@ -103,6 +170,7 @@ namespace ProjetoFarmacia
 
         private void rbUtensilios_CheckedChanged(object sender, EventArgs e)
         {
+
             ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
 
             string Busca = rbUtensilios.Text.ToString();
@@ -111,11 +179,173 @@ namespace ProjetoFarmacia
             dsProdutosSetor = produtocrud.BuscarSetor(Busca);
             dgvProdutos.DataSource = dsProdutosSetor;
             dgvProdutos.DataMember = "entrada_medicamento";
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ListarProduto();
+        }
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebar.Width -= 100;
+                if (sidebar.Width == sidebar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebarTimer.Stop();
+                }
+            }
+            else
+            {
+                sidebar.Width += 100;
+                if(sidebar.Width == sidebar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebarTimer.Stop();
+                }
+            }
+        }
+
+        private void pbFlechaExpand_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+            pbFlechaExpand.Visible = false;
+            pbReturnExpand.Visible = true;
+        }
+
+        private void frmTelaPrincipal_Load(object sender, EventArgs e)
+        {
+            btnCadastro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCadastro.Width, btnCadastro.Height, 30, 30));
+            btnLista.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLista.Width, btnLista.Height, 30, 30));
+            btnResetFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnResetFiltro.Width, btnResetFiltro.Height, 30, 30));
+
+
+            sidebar.BringToFront();
+            
+
+        }
+
+        private void btnCadastro_Click_1(object sender, EventArgs e)
+        {
+            frmCadastro cadastro = new frmCadastro(nomeUsuario);
+            cadastro.ShowDialog();
+            ListarProduto();
+        }
+
+        private void pbReturnExpand_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+            pbReturnExpand.Visible = false;
+            pbFlechaExpand.Visible = true;
+        }
+
+        private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProdutos.SelectedRows.Count > 0)
+            {
+                btnInformacao.Visible = true;
+                btnManiBaixa.Visible = true;
+            }
+            else if(dgvProdutos.SelectedColumns.Count < 0)
+            {
+                btnInformacao.Visible = false;
+                btnManiBaixa.Visible= false;
+            }
+        }
+
+        private void btnInformacao_Click(object sender, EventArgs e)
+        {
+            if(dgvProdutos.SelectedRows.Count > 0)
+            {
+                string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                frmTelaInformacao informacao = new frmTelaInformacao(codigo);
+                informacao.ShowDialog();
+
+                ListarProduto();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um registro para alterar.");
+            }
+            
+        }
+
+        private void btnLista_Click_1(object sender, EventArgs e)
+        {
+            frmListaCompra listacompra = new frmListaCompra();
+            listacompra.ShowDialog();
+        }
+
+        private void dgvProdutos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProdutos.Columns[e.ColumnIndex].Name == "datavalidade_medicamento")
+            {
+                if(e.Value != null)
+                {
+                    DateTime dataValidade;
+                    if (DateTime.TryParse(e.Value.ToString(), out dataValidade))
+                    {
+                        TimeSpan diferenca = dataValidade - DateTime.Now;
+
+                        if (diferenca.Days < 20 && diferenca.Days >= 0)
+                        {
+                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+
+                        }
+                        else if(diferenca.Days < 0)
+                        {
+                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            rbMaterialConsumo.Checked = false;
+            rbUtensilios.Checked = false;
+            rbMateria.Checked = false;
+            txbNomePesquisa.Text = string.Empty;
+            ListarProduto();
+            ConfigurarDataGrid();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            ListarProdutoControlado();
+            ConfigurarDataGridControlado();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            ListarProdutosEntrada();
+        }
+
+        private void rbTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            ListarProduto();
+            ConfigurarDataGrid();
+        }
+
+        private void btnManiBaixa_Click(object sender, EventArgs e)
+        {
+            if (dgvProdutos.SelectedRows.Count > 0)
+            {
+                string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                frmManipulados manipulados = new frmManipulados(codigo);
+                manipulados.ShowDialog();
+                ListarProduto();
+            }
         }
     }
 }

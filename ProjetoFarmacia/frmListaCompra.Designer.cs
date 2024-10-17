@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaCompra));
             this.lbLista = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lbLista
             // 
+            this.lbLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLista.FormattingEnabled = true;
+            this.lbLista.ItemHeight = 20;
             this.lbLista.Location = new System.Drawing.Point(12, 15);
             this.lbLista.Name = "lbLista";
-            this.lbLista.Size = new System.Drawing.Size(332, 420);
+            this.lbLista.Size = new System.Drawing.Size(332, 404);
             this.lbLista.TabIndex = 1;
             // 
             // frmListaCompra
@@ -46,7 +49,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(356, 450);
             this.Controls.Add(this.lbLista);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Compras";
             this.ResumeLayout(false);
 

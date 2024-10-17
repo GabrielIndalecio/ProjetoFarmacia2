@@ -51,6 +51,8 @@
             this.txbUnidadeOutros = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbProdutoControlado = new System.Windows.Forms.CheckBox();
+            this.txtNomeResp = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.gpsetor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,7 +177,7 @@
             // 
             this.rbMaterialConsumo.AutoSize = true;
             this.rbMaterialConsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMaterialConsumo.Location = new System.Drawing.Point(294, 28);
+            this.rbMaterialConsumo.Location = new System.Drawing.Point(288, 28);
             this.rbMaterialConsumo.Name = "rbMaterialConsumo";
             this.rbMaterialConsumo.Size = new System.Drawing.Size(177, 24);
             this.rbMaterialConsumo.TabIndex = 2;
@@ -255,7 +257,7 @@
             // 
             // btnSalvarCad
             // 
-            this.btnSalvarCad.Location = new System.Drawing.Point(429, 417);
+            this.btnSalvarCad.Location = new System.Drawing.Point(457, 506);
             this.btnSalvarCad.Name = "btnSalvarCad";
             this.btnSalvarCad.Size = new System.Drawing.Size(103, 32);
             this.btnSalvarCad.TabIndex = 29;
@@ -292,13 +294,34 @@
             this.cbProdutoControlado.TabIndex = 32;
             this.cbProdutoControlado.Text = "Produto Controlado";
             this.cbProdutoControlado.UseVisualStyleBackColor = true;
+            this.cbProdutoControlado.CheckedChanged += new System.EventHandler(this.cbProdutoControlado_CheckedChanged);
+            // 
+            // txtNomeResp
+            // 
+            this.txtNomeResp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeResp.Location = new System.Drawing.Point(68, 475);
+            this.txtNomeResp.Name = "txtNomeResp";
+            this.txtNomeResp.Size = new System.Drawing.Size(355, 26);
+            this.txtNomeResp.TabIndex = 33;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(64, 448);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 24);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Responsavel";
             // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(585, 462);
+            this.ClientSize = new System.Drawing.Size(585, 550);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtNomeResp);
             this.Controls.Add(this.cbProdutoControlado);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txbUnidadeOutros);
@@ -320,7 +343,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmCadastro";
-            this.Text = "frmCadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.gpsetor.ResumeLayout(false);
             this.gpsetor.PerformLayout();
@@ -354,5 +378,7 @@
         private System.Windows.Forms.TextBox txbUnidadeOutros;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox cbProdutoControlado;
+        private System.Windows.Forms.TextBox txtNomeResp;
+        private System.Windows.Forms.Label label10;
     }
 }

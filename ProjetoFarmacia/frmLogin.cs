@@ -112,9 +112,10 @@ namespace ProjetoFarmacia
                 DocenteCRUD docentecrud = new DocenteCRUD(_conexao);
                 string email = txbEmailLogin.Text;
                 string senha = txbSenhaLogin.Text;
-                if (docentecrud.LoginDocente(email, senha))
+                string nomeUsuario = docentecrud.NomeLogin(email, senha);
+                if (docentecrud.LoginDocente(email, senha) && nomeUsuario != null)
                 {
-                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal();
+                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal(nomeUsuario);
                     this.Hide();
                     frmtelaprincipal.ShowDialog();
                     this.Close();
@@ -129,9 +130,10 @@ namespace ProjetoFarmacia
                 AlunoCRUD alunoscrud = new AlunoCRUD(_conexao);
                 string email = txbEmailLogin.Text;
                 string senha = txbSenhaLogin.Text;
-                if (alunoscrud.LoginUsuario(email, senha))
+                string nomeUsuario = alunoscrud.NomeLogin(email, senha);
+                if (alunoscrud.LoginUsuario(email, senha) && nomeUsuario != null)
                 {
-                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal();
+                    frmTelaPrincipal frmtelaprincipal = new frmTelaPrincipal(nomeUsuario);
                     this.Hide();
                     frmtelaprincipal.ShowDialog();
                     this.Close();
@@ -150,6 +152,20 @@ namespace ProjetoFarmacia
             {
                 btnLogin_Click(sender, e);
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = true;
+            lblLogin.Text = "Cadastro";
+            panelLogin.Visible = false;
+        }
+
+        private void lblCadastroLogin_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = false;
+            lblLogin.Text = "Login";
+            panelLogin.Visible = true;
         }
     }
 }
