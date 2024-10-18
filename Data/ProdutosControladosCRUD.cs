@@ -19,8 +19,8 @@ namespace Data
 
         public void IncluiProdutoControlado(ProdutosControlados produtoscontrolados)
         {
-            const string query = @"INSERT INTO medicamento_controlado (nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado)
-                                   Values (@nome, @setor, @unidade, @estoque, @datavalidade, @lote, @data_fabricacao, @data_entrada, @responsavel)";
+            const string query = @"INSERT INTO medicamento_controlado (nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado, local_medicamento_controlado, temperatura_medicamento_controlado)
+                                   Values (@nome, @setor, @unidade, @estoque, @datavalidade, @lote, @data_fabricacao, @data_entrada, @responsavel, @local, @temp)";
 
 
             try
@@ -37,6 +37,8 @@ namespace Data
                     comandoSql.Parameters.AddWithValue("@data_fabricacao", produtoscontrolados.data_fabricacao_controlado);
                     comandoSql.Parameters.AddWithValue("@data_entrada", produtoscontrolados.data_entrada_controlado);
                     comandoSql.Parameters.AddWithValue("@responsavel", produtoscontrolados.responsavel_medicamento_controlado);
+                    comandoSql.Parameters.AddWithValue("@local", produtoscontrolados.local_medicamento_controlado);
+                    comandoSql.Parameters.AddWithValue("@temp", produtoscontrolados.temperatura_medicamento_controlado);
 
                     conexaobd.Open();
                     // O codigo ta um lixo!
@@ -120,7 +122,9 @@ namespace Data
                                 lote_medicamento_controlado = Convert.ToInt32(reader["lote_medicamento_controlado"]),
                                 data_fabricacao_controlado = reader["data_fabricacao_controlado"].ToString(),
                                 data_entrada_controlado = reader["data_entrada_controlado"].ToString(),
-                                responsavel_medicamento_controlado = reader["responsavel_medicamento_controlado"].ToString()
+                                responsavel_medicamento_controlado = reader["responsavel_medicamento_controlado"].ToString(),
+                                local_medicamento_controlado = reader["local_medicamento_controlado"].ToString(),
+                                temperatura_medicamento_controlado = reader["temperatura_medicamento_controlado"].ToString()
                             };
                         }
                     }
@@ -163,6 +167,8 @@ namespace Data
                                     data_fabricacao_controlado = @fabricacao,
                                     data_entrada_controlado = @entrada,
                                     responsavel_medicamento_controlado = @responsavel
+                                    local_medicamento_controlado = @local
+                                    temperatura_medicamento_controlado = @temp
                                     where id_produto_controlado = @id";
             try
             {
@@ -177,6 +183,8 @@ namespace Data
                     comandosql.Parameters.AddWithValue("@fabricacao", prodcontrol.data_fabricacao_controlado);
                     comandosql.Parameters.AddWithValue("@entrada", prodcontrol.data_entrada_controlado);
                     comandosql.Parameters.AddWithValue("@responsavel", prodcontrol.responsavel_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@local", prodcontrol.local_medicamento_controlado);
+                    comandosql.Parameters.AddWithValue("@temp", prodcontrol.temperatura_medicamento_controlado);
                     comandosql.Parameters.AddWithValue("@nome", prodcontrol.nome_medicamento_controlado);
                     comandosql.Parameters.AddWithValue("@id", prodcontrol.id_produto_controlado);
 

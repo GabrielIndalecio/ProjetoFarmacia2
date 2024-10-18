@@ -38,6 +38,8 @@ namespace ProjetoFarmacia
                     mtbFabricacaoInf.Text = produtoscontrol.data_fabricacao_controlado;
                     txbLoteCadInf.Text = produtoscontrol.lote_medicamento_controlado.ToString();
                     txtNomeRespInf.Text = produtoscontrol.responsavel_medicamento_controlado;
+                    txbLocal.Text = produtoscontrol.local_medicamento_controlado;
+                    cbTemperatura.Text = produtoscontrol.temperatura_medicamento_controlado;
                     if (produtoscontrol.setor_medicamento_controlado == rbUtensilioInf.Text)
                     {
                         rbUtensilioInf.Checked = true;
@@ -63,6 +65,8 @@ namespace ProjetoFarmacia
                     mtbFabricacaoInf.Text = produtos.data_fabricacao;
                     txbLoteCadInf.Text = produtos.lote_medicamento.ToString();
                     txtNomeRespInf.Text = produtos.responsavel_medicamento;
+                    txbLocal.Text = produtos.local_medicamento;
+                    cbTemperatura.Text = produtos.temperatura_medicamento;
                     if (produtos.setor_medicamento == rbUtensilioInf.Text)
                     {
                         rbUtensilioInf.Checked = true;
@@ -97,6 +101,8 @@ namespace ProjetoFarmacia
                     produtoscontrolados.data_fabricacao_controlado = mtbFabricacaoInf.Text;
                     produtoscontrolados.lote_medicamento_controlado = Convert.ToInt32(txbLoteCadInf.Text);
                     produtoscontrolados.responsavel_medicamento_controlado = txtNomeRespInf.Text;
+                    produtoscontrolados.local_medicamento_controlado = txbLocal.Text;
+                    produtoscontrolados.temperatura_medicamento_controlado = cbTemperatura.Text;
                     if (rbMaterialConsumoInf.Checked == true)
                     {
                         produtoscontrolados.setor_medicamento_controlado = rbMaterialConsumoInf.Text;
@@ -136,6 +142,8 @@ namespace ProjetoFarmacia
                     produtos.data_fabricacao = mtbFabricacaoInf.Text;
                     produtos.lote_medicamento = Convert.ToInt32(txbLoteCadInf.Text);
                     produtos.responsavel_medicamento = txtNomeRespInf.Text;
+                    produtos.local_medicamento = txbLocal.Text;
+                    produtos.temperatura_medicamento = cbTemperatura.Text;
                     if (rbMaterialConsumoInf.Checked == true)
                     {
                         produtos.setor_medicamento = rbMaterialConsumoInf.Text;
@@ -219,6 +227,11 @@ namespace ProjetoFarmacia
                 mtbDataValidadeInf.ReadOnly = true;
                 mtbFabricacaoInf.ReadOnly = true;
             }
+        }
+
+        private void frmTelaInformacao_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

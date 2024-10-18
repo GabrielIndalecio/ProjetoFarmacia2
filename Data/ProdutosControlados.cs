@@ -18,5 +18,7 @@ namespace Data
         public string data_fabricacao_controlado { get; set; }
         public string data_entrada_controlado { get; set; }
         public string responsavel_medicamento_controlado { get; set; }
+        public string local_medicamento_controlado { get; set; }
+        public string temperatura_medicamento_controlado { get; set; }
     }
 }

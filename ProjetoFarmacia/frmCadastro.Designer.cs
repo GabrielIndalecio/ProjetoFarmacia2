@@ -53,6 +53,10 @@
             this.cbProdutoControlado = new System.Windows.Forms.CheckBox();
             this.txtNomeResp = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txbLocal = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbTemperatura = new System.Windows.Forms.ComboBox();
             this.gpsetor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +70,7 @@
             "Unidade",
             "Frasco",
             "Outros"});
-            this.cbUnidade.Location = new System.Drawing.Point(351, 338);
+            this.cbUnidade.Location = new System.Drawing.Point(351, 445);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(187, 21);
             this.cbUnidade.TabIndex = 28;
@@ -76,7 +80,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(347, 306);
+            this.label8.Location = new System.Drawing.Point(347, 413);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 24);
             this.label8.TabIndex = 27;
@@ -86,7 +90,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(64, 386);
+            this.label7.Location = new System.Drawing.Point(64, 445);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 24);
             this.label7.TabIndex = 26;
@@ -95,7 +99,7 @@
             // txbLoteCad
             // 
             this.txbLoteCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbLoteCad.Location = new System.Drawing.Point(121, 386);
+            this.txbLoteCad.Location = new System.Drawing.Point(121, 445);
             this.txbLoteCad.Name = "txbLoteCad";
             this.txbLoteCad.Size = new System.Drawing.Size(211, 26);
             this.txbLoteCad.TabIndex = 25;
@@ -103,7 +107,7 @@
             // txbDataEntradaProd
             // 
             this.txbDataEntradaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDataEntradaProd.Location = new System.Drawing.Point(243, 295);
+            this.txbDataEntradaProd.Location = new System.Drawing.Point(243, 354);
             this.txbDataEntradaProd.Mask = "00/00/0000";
             this.txbDataEntradaProd.Name = "txbDataEntradaProd";
             this.txbDataEntradaProd.Size = new System.Drawing.Size(89, 26);
@@ -113,7 +117,7 @@
             // mtbFabricacao
             // 
             this.mtbFabricacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbFabricacao.Location = new System.Drawing.Point(243, 324);
+            this.mtbFabricacao.Location = new System.Drawing.Point(243, 383);
             this.mtbFabricacao.Mask = "00/00/0000";
             this.mtbFabricacao.Name = "mtbFabricacao";
             this.mtbFabricacao.Size = new System.Drawing.Size(89, 26);
@@ -123,7 +127,7 @@
             // mtbDataValidade
             // 
             this.mtbDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbDataValidade.Location = new System.Drawing.Point(243, 357);
+            this.mtbDataValidade.Location = new System.Drawing.Point(243, 416);
             this.mtbDataValidade.Mask = "00/00/0000";
             this.mtbDataValidade.Name = "mtbDataValidade";
             this.mtbDataValidade.Size = new System.Drawing.Size(89, 26);
@@ -134,7 +138,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(64, 295);
+            this.label6.Location = new System.Drawing.Point(64, 354);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 24);
             this.label6.TabIndex = 19;
@@ -144,7 +148,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(64, 324);
+            this.label5.Location = new System.Drawing.Point(64, 383);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(178, 24);
             this.label5.TabIndex = 20;
@@ -154,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(64, 357);
+            this.label4.Location = new System.Drawing.Point(64, 416);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 24);
             this.label4.TabIndex = 21;
@@ -257,7 +261,7 @@
             // 
             // btnSalvarCad
             // 
-            this.btnSalvarCad.Location = new System.Drawing.Point(457, 506);
+            this.btnSalvarCad.Location = new System.Drawing.Point(457, 578);
             this.btnSalvarCad.Name = "btnSalvarCad";
             this.btnSalvarCad.Size = new System.Drawing.Size(103, 32);
             this.btnSalvarCad.TabIndex = 29;
@@ -267,7 +271,7 @@
             // 
             // txbUnidadeOutros
             // 
-            this.txbUnidadeOutros.Location = new System.Drawing.Point(351, 391);
+            this.txbUnidadeOutros.Location = new System.Drawing.Point(351, 498);
             this.txbUnidadeOutros.Name = "txbUnidadeOutros";
             this.txbUnidadeOutros.Size = new System.Drawing.Size(187, 20);
             this.txbUnidadeOutros.TabIndex = 30;
@@ -277,7 +281,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(348, 370);
+            this.label9.Location = new System.Drawing.Point(348, 477);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 18);
             this.label9.TabIndex = 31;
@@ -288,7 +292,7 @@
             // 
             this.cbProdutoControlado.AutoSize = true;
             this.cbProdutoControlado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProdutoControlado.Location = new System.Drawing.Point(121, 421);
+            this.cbProdutoControlado.Location = new System.Drawing.Point(121, 480);
             this.cbProdutoControlado.Name = "cbProdutoControlado";
             this.cbProdutoControlado.Size = new System.Drawing.Size(166, 24);
             this.cbProdutoControlado.TabIndex = 32;
@@ -299,8 +303,9 @@
             // txtNomeResp
             // 
             this.txtNomeResp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeResp.Location = new System.Drawing.Point(68, 475);
+            this.txtNomeResp.Location = new System.Drawing.Point(68, 547);
             this.txtNomeResp.Name = "txtNomeResp";
+            this.txtNomeResp.ReadOnly = true;
             this.txtNomeResp.Size = new System.Drawing.Size(355, 26);
             this.txtNomeResp.TabIndex = 33;
             // 
@@ -308,18 +313,63 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(64, 448);
+            this.label10.Location = new System.Drawing.Point(64, 520);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 24);
             this.label10.TabIndex = 34;
             this.label10.Text = "Responsavel";
+            // 
+            // txbLocal
+            // 
+            this.txbLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbLocal.Location = new System.Drawing.Point(68, 312);
+            this.txbLocal.Name = "txbLocal";
+            this.txbLocal.Size = new System.Drawing.Size(471, 26);
+            this.txbLocal.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(70, 285);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 24);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Local:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(347, 354);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 24);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Temperatura:";
+            // 
+            // cbTemperatura
+            // 
+            this.cbTemperatura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTemperatura.FormattingEnabled = true;
+            this.cbTemperatura.Items.AddRange(new object[] {
+            "Temp Ambiente",
+            "Geladeira",
+            "Freezer"});
+            this.cbTemperatura.Location = new System.Drawing.Point(351, 381);
+            this.cbTemperatura.Name = "cbTemperatura";
+            this.cbTemperatura.Size = new System.Drawing.Size(187, 21);
+            this.cbTemperatura.TabIndex = 38;
             // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(585, 550);
+            this.ClientSize = new System.Drawing.Size(585, 626);
+            this.Controls.Add(this.cbTemperatura);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txbLocal);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtNomeResp);
             this.Controls.Add(this.cbProdutoControlado);
@@ -380,5 +430,9 @@
         private System.Windows.Forms.CheckBox cbProdutoControlado;
         private System.Windows.Forms.TextBox txtNomeResp;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txbLocal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbTemperatura;
     }
 }

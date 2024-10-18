@@ -20,8 +20,8 @@ namespace Data
 
         public void IncluiProduto(Produtos produtos)
         {
-            const string query = @"INSERT INTO entrada_medicamento (nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento)
-                                    Values(@nome, @setor, @unidade, @estoque, @datavalidade, @lote, @datafabricacao, @data_entrada, @responsavel_medicamento)";
+            const string query = @"INSERT INTO entrada_medicamento (nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento, local_medicamento, temperatura_medicamento)
+                                    Values(@nome, @setor, @unidade, @estoque, @datavalidade, @lote, @datafabricacao, @data_entrada, @responsavel_medicamento, @local_med, @temp_med)";
 
             try
             {
@@ -37,6 +37,8 @@ namespace Data
                     comandoSql.Parameters.AddWithValue("@datafabricacao", produtos.data_fabricacao);
                     comandoSql.Parameters.AddWithValue("@data_entrada", produtos.data_entrada);
                     comandoSql.Parameters.AddWithValue("@responsavel_medicamento", produtos.responsavel_medicamento);
+                    comandoSql.Parameters.AddWithValue("@local_med", produtos.local_medicamento);
+                    comandoSql.Parameters.AddWithValue("@temp_med", produtos.temperatura_medicamento);
 
                     conexaobd.Open();
 
@@ -52,10 +54,10 @@ namespace Data
 
         public DataSet BuscarProduto(string pesquisa = "")
         {
-            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento
+            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento, local_medicamento, temperatura_medicamento
                                     FROM entrada_medicamento WHERE nome_medicamento LIKE @pesquisa
                                     UNION ALL
-                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado
+                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado, local_medicamento_controlado, temperatura_medicamento_controlado
                                     FROM medicamento_controlado WHERE nome_medicamento_controlado LIKE @pesquisa";
 
             try
@@ -77,10 +79,10 @@ namespace Data
 
         public DataSet BuscarSetor(string Pesquisar = "")
         {
-            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento
+            const string query = @"SELECT id_produto, nome_medicamento, setor_medicamento, unidade_medicamento, estoque_medicamento, datavalidade_medicamento, lote_medicamento, data_fabricacao, data_entrada, responsavel_medicamento, local_medicamento, temperatura_medicamento
                                     FROM entrada_medicamento WHERE setor_medicamento LIKE @Pesquisar
                                     UNION ALL
-                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado
+                                    SELECT id_produto_controlado, nome_medicamento_controlado, setor_medicamento_controlado, unidade_medicamento_controlado, estoque_medicamento_controlado, datavalidade_medicamento_controlado, lote_medicamento_controlado, data_fabricacao_controlado, data_entrada_controlado, responsavel_medicamento_controlado, local_medicamento_controlado, temperatura_medicamento_controlado
                                     FROM medicamento_controlado WHERE setor_medicamento_controlado LIKE @Pesquisar";
 
             try
@@ -126,7 +128,9 @@ namespace Data
                                 lote_medicamento = Convert.ToInt32(reader["lote_medicamento"]),
                                 data_fabricacao = reader["data_fabricacao"].ToString(),
                                 data_entrada = reader["data_entrada"].ToString(),
-                                responsavel_medicamento = reader["responsavel_medicamento"].ToString()
+                                responsavel_medicamento = reader["responsavel_medicamento"].ToString(),
+                                local_medicamento = reader["local_medicamento"].ToString(),
+                                temperatura_medicamento = reader["temperatura_medicamento"].ToString()
                             };
                         }
                     }
@@ -213,7 +217,9 @@ namespace Data
                                     lote_medicamento = @lote,
                                     data_fabricacao = @fabricacao,
                                     data_entrada = @entrada,
-                                    responsavel_medicamento = @responsavel
+                                    responsavel_medicamento = @responsavel,
+                                    local_medicamento = @local,
+                                    temperatura_medicamento = @temperatura
                                     where id_produto = @id";
             try
             {
@@ -228,6 +234,8 @@ namespace Data
                     comandosql.Parameters.AddWithValue("@fabricacao", produtos.data_fabricacao);
                     comandosql.Parameters.AddWithValue("@entrada", produtos.data_entrada);
                     comandosql.Parameters.AddWithValue("@responsavel", produtos.responsavel_medicamento);
+                    comandosql.Parameters.AddWithValue("@local", produtos.local_medicamento);
+                    comandosql.Parameters.AddWithValue("@temperatura", produtos.temperatura_medicamento);
                     comandosql.Parameters.AddWithValue("@nome", produtos.nome_medicamento);
                     comandosql.Parameters.AddWithValue("@id", produtos.id_produto);
 
