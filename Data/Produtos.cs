@@ -27,5 +27,9 @@ namespace Data
         public string data_entrada {  get; set; }
 
         public string responsavel_medicamento { get; set; }
+
+        public string local_medicamento { get; set; }
+        
+        public string temperatura_medicamento { get; set; }
     }
 }

@@ -66,6 +66,8 @@ namespace ProjetoFarmacia
                     produtoscontrolados.data_entrada_controlado = txbDataEntradaProd.Text;
                     produtoscontrolados.lote_medicamento_controlado = Convert.ToInt32(txbLoteCad.Text);
                     produtoscontrolados.responsavel_medicamento_controlado = txtNomeResp.Text;
+                    produtoscontrolados.local_medicamento_controlado = txbLocal.Text;
+                    produtoscontrolados.temperatura_medicamento_controlado = cbTemperatura.Text;
 
                     produtoscontroladocrud.IncluiProdutoControlado(produtoscontrolados);
 
@@ -92,6 +94,8 @@ namespace ProjetoFarmacia
                     produtos.data_entrada = txbDataEntradaProd.Text;
                     produtos.lote_medicamento = Convert.ToInt32(txbLoteCad.Text);
                     produtos.responsavel_medicamento = txtNomeResp.Text;
+                    produtos.local_medicamento = txbLocal.Text;
+                    produtos.temperatura_medicamento = cbTemperatura.Text;
 
                     produtocrud.IncluiProduto(produtos);
 

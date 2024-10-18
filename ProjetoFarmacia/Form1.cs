@@ -71,6 +71,8 @@ namespace ProjetoFarmacia
             dgvProdutos.Columns["data_fabricacao"].HeaderText = "Fabricação";
             dgvProdutos.Columns["data_entrada"].HeaderText = "Entrada";
             dgvProdutos.Columns["responsavel_medicamento"].Visible = false;
+            dgvProdutos.Columns["local_medicamento"].Visible = false;
+            dgvProdutos.Columns["temperatura_medicamento"].Visible = false;
 
             dgvProdutos.Columns["nome_medicamento"].DisplayIndex = 0;
             dgvProdutos.Columns["setor_medicamento"].DisplayIndex = 1;
@@ -97,6 +99,8 @@ namespace ProjetoFarmacia
             dgvProdutos.Columns["data_fabricacao_controlado"].HeaderText = "Fabricação";
             dgvProdutos.Columns["data_entrada_controlado"].HeaderText = "Entrada";
             dgvProdutos.Columns["responsavel_medicamento_controlado"].Visible = false;
+            dgvProdutos.Columns["local_medicamento_controlado"].Visible = false;
+            dgvProdutos.Columns["temperatura_medicamento_controlado"].Visible = false;
 
             dgvProdutos.Columns["nome_medicamento_controlado"].DisplayIndex = 0;
             dgvProdutos.Columns["setor_medicamento_controlado"].DisplayIndex = 1;
