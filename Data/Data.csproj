@@ -100,6 +100,8 @@
     <Compile Include="Alunos.cs" />
     <Compile Include="DocenteCRUD.cs" />
     <Compile Include="Docentes.cs" />
+    <Compile Include="ManipuladoCRUD.cs" />
+    <Compile Include="Manipulados.cs" />
     <Compile Include="ProdutoCRUD.cs" />
     <Compile Include="Produtos.cs" />
     <Compile Include="ProdutosControlados.cs" />

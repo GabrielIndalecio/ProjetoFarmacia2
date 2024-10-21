@@ -14,104 +14,99 @@ namespace ProjetoFarmacia
     public partial class frmManipulados : Form
     {
         string _conexao = ProjetoFarmacia.Properties.Settings.Default.conexao;
-        public frmManipulados(string codigo)
+        private string nomeUsuario;
+        public frmManipulados(string nomeUsuario)
         {
             InitializeComponent();
-            if (codigo != null)
+            this.nomeUsuario = nomeUsuario;
+            txbResponsavelMani.Text = nomeUsuario;
+            ListarProdutoMani();
+            ConfigurarDataGrid();
+            
+        }
+
+        private void btnSalvarMani_Click(object sender, EventArgs e)
+        {
+            Manipulados manipulados = new Manipulados();
+            ManipuladoCRUD manipuladocrud = new ManipuladoCRUD(_conexao);
+            try
             {
-                Produtos produtos = new Produtos();
-                ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
-                ProdutosControlados produtoscontrolado = new ProdutosControlados();
-                ProdutosControladosCRUD produtoscontroladocrud = new ProdutosControladosCRUD(_conexao);
+                manipulados.nome_manipulado = txbNomeMani.Text;
+                manipulados.estoque_manipulado = Convert.ToInt32(txbQuantidadeMani.Text);
+                manipulados.datavalidade_manipulado = txbUnidadeOutrosMani.Text;
+                manipulados.datafabricacao_manipulado = txbFabricacaoMani.Text;
+                manipulados.local_manipulado = txbLocalMani.Text;
+                if (cbUnidadeMani.SelectedIndex != 4) { manipulados.unidade_manipulado = cbUnidadeMani.Text; } else { manipulados.unidade_manipulado = txbUnidadeOutrosMani.Text; }
+                manipulados.temperatura_manipulado = cbTemperatura.Text;
+                manipulados.responsavel_manipulado = txbResponsavelMani.Text;
+                manipulados.lote_manipulado = Convert.ToInt32(txbLoteMani.Text);
+                if (chbProdutoControlMani.Checked == true) { manipulados.manipulado_controlado = "Sim"; } else { manipulados.manipulado_controlado = "Nao"; }
 
-                produtos = produtocrud.ObtemProduto(codigo);
-                produtoscontrolado = produtoscontroladocrud.ObtemProdutoControlado(codigo);
+                manipuladocrud.IncluiProdutoManipulacao(manipulados);
 
-                if(produtos == null)
-                {
-                    lblCodigo.Text = produtoscontrolado.id_produto_controlado.ToString();
-                    txtNomeMani.Text = produtoscontrolado.nome_medicamento_controlado;
-                    txtQuantidadeAtual.Text = produtoscontrolado.estoque_medicamento_controlado.ToString();
-                    txtUnidade.Text = produtoscontrolado.unidade_medicamento_controlado;
-                    if (produtoscontrolado.setor_medicamento_controlado == rbUtensilioInf.Text)
-                    {
-                        rbUtensilioInf.Checked = true;
-                    }
-                    if (produtoscontrolado.setor_medicamento_controlado == rbMateriaInf.Text)
-                    {
-                        rbMateriaInf.Checked = true;
-                    }
-                    if (produtoscontrolado.setor_medicamento_controlado == rbMaterialConsumoInf.Text)
-                    {
-                        rbMaterialConsumoInf.Checked = true;
-                    }
-                    
-                    cbProdutoControlado.Checked = true;
-                }
-                else
-                {
-                    lblCodigo.Text = produtos.id_produto.ToString();
-                    txtNomeMani.Text = produtos.nome_medicamento;
-                    txtQuantidadeAtual.Text = produtos.estoque_medicamento.ToString();
-                    txtUnidade.Text = produtos.unidade_medicamento;
-                    if (produtos.setor_medicamento == rbUtensilioInf.Text)
-                    {
-                        rbUtensilioInf.Checked = true;
-                    }
-                    if (produtos.setor_medicamento == rbMateriaInf.Text)
-                    {
-                        rbMateriaInf.Checked = true;
-                    }
-                    if (produtos.setor_medicamento == rbMaterialConsumoInf.Text)
-                    {
-                        rbMaterialConsumoInf.Checked = true;
-                    }
+                MessageBox.Show("Cadastrado com Sucesso!");
 
-                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("erro", ex);
             }
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void cbUnidadeMani_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (cbProdutoControlado.Checked)
+            if (cbUnidadeMani.SelectedIndex == 4)
             {
-                
-                ProdutosControlados produtoscontrolados = new ProdutosControlados();
-                ProdutosControladosCRUD prodcontrolcrud = new ProdutosControladosCRUD(_conexao);
-                int subtrair = Convert.ToInt32(txtQuantidadeRetirar.Text);
-                try
-                {
-                    produtoscontrolados.id_produto_controlado = Convert.ToInt32(lblCodigo.Text);
-                    produtoscontrolados.estoque_medicamento_controlado = Convert.ToInt32(txtQuantidadeAtual.Text) - subtrair;
-
-                    if (MessageBox.Show("Tem certeza que deseja continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        prodcontrolcrud.DarBaixaControlado(produtoscontrolados);
-                        this.Close();
-                    }
-                    
-                }
-                catch(Exception ex) { throw new Exception("Erro", ex); }
+                label3.Visible = true;
+                txbUnidadeOutrosMani.Visible = true;
             }
             else
             {
-                Produtos produtos = new Produtos();
-                ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
-                int subtrair = Convert.ToInt32(txtQuantidadeRetirar.Text);
-                try
-                {
-                    produtos.id_produto = Convert.ToInt32(lblCodigo.Text);
-                    produtos.estoque_medicamento = Convert.ToInt32(txtQuantidadeAtual.Text) - subtrair;
+                label3.Visible = false;
+                txbUnidadeOutrosMani.Visible = false;
+            }
+        }
+        private void ListarProdutoMani()
+        {
+            ProdutoCRUD produtocrud = new ProdutoCRUD(_conexao);
+            string busca = txbPesquisa.Text.ToString();
+            DataSet dsProduto = new DataSet();
+            dsProduto = produtocrud.BuscarProduto(busca);
+            dgvManipulados.DataSource = dsProduto.Tables[0];
+        }
+        private void ConfigurarDataGrid()
+        {
+            dgvManipulados.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
 
+            dgvManipulados.RowHeadersWidth = 25;
 
-                    if (MessageBox.Show("Tem certeza que deseja continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        produtocrud.DarBaixa(produtos);
-                        this.Close();
-                    }
-                }
-                catch (Exception ex) { throw new Exception("Erro", ex); }
+            dgvManipulados.Columns["id_produto"].Visible = false;
+            dgvManipulados.Columns["nome_medicamento"].HeaderText = "Nome";
+            dgvManipulados.Columns["setor_medicamento"].HeaderText = "Setor";
+            dgvManipulados.Columns["unidade_medicamento"].HeaderText = "Unidade";
+            dgvManipulados.Columns["estoque_medicamento"].HeaderText = "Estoque";
+            dgvManipulados.Columns["datavalidade_medicamento"].Visible = false;
+            dgvManipulados.Columns["lote_medicamento"].HeaderText = "Lote";
+            dgvManipulados.Columns["data_fabricacao"].Visible = false;
+            dgvManipulados.Columns["data_entrada"].Visible = false;
+            dgvManipulados.Columns["responsavel_medicamento"].Visible = false;
+            dgvManipulados.Columns["local_medicamento"].Visible = false;
+            dgvManipulados.Columns["temperatura_medicamento"].Visible = false;
+
+            dgvManipulados.Columns["nome_medicamento"].DisplayIndex = 0;
+            dgvManipulados.Columns["setor_medicamento"].DisplayIndex = 1;
+            dgvManipulados.Columns["unidade_medicamento"].DisplayIndex = 2;
+            dgvManipulados.Columns["estoque_medicamento"].DisplayIndex = 3;
+            dgvManipulados.Columns["lote_medicamento"].DisplayIndex = 4;
+        }
+
+        private void dgvManipulados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvManipulados.SelectedRows.Count > 0)
+            {
+                string codigo = dgvManipulados.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                frmBaixa baixa = new frmBaixa(codigo);
+                baixa.ShowDialog();
             }
         }
     }

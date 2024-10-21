@@ -46,6 +46,8 @@
             this.btnCadastro = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLista = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnManipulacao = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.lbl_NomePrincipal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,6 +55,7 @@
             this.btnInformacao = new System.Windows.Forms.Button();
             this.btnResetFiltro = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbProdutoManipulado = new System.Windows.Forms.RadioButton();
             this.rbProdutosControlados = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
@@ -68,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFlechaExpand)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +156,7 @@
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel3);
+            this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.MaximumSize = new System.Drawing.Size(371, 681);
@@ -258,6 +263,29 @@
             this.btnLista.UseVisualStyleBackColor = true;
             this.btnLista.Click += new System.EventHandler(this.btnLista_Click_1);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnManipulacao);
+            this.panel5.Location = new System.Drawing.Point(3, 378);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(368, 100);
+            this.panel5.TabIndex = 3;
+            // 
+            // btnManipulacao
+            // 
+            this.btnManipulacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnManipulacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManipulacao.Image = ((System.Drawing.Image)(resources.GetObject("btnManipulacao.Image")));
+            this.btnManipulacao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManipulacao.Location = new System.Drawing.Point(3, 3);
+            this.btnManipulacao.Name = "btnManipulacao";
+            this.btnManipulacao.Size = new System.Drawing.Size(365, 94);
+            this.btnManipulacao.TabIndex = 0;
+            this.btnManipulacao.Text = "Cadastrar Manipulação";
+            this.btnManipulacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManipulacao.UseVisualStyleBackColor = true;
+            this.btnManipulacao.Click += new System.EventHandler(this.btnManipulacao_Click);
+            // 
             // sidebarTimer
             // 
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
@@ -321,6 +349,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.rbProdutoManipulado);
             this.groupBox1.Controls.Add(this.rbProdutosControlados);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.rbTodos);
@@ -328,10 +357,22 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(97, 364);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 121);
+            this.groupBox1.Size = new System.Drawing.Size(200, 140);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categoria";
+            // 
+            // rbProdutoManipulado
+            // 
+            this.rbProdutoManipulado.AutoSize = true;
+            this.rbProdutoManipulado.Location = new System.Drawing.Point(6, 110);
+            this.rbProdutoManipulado.Name = "rbProdutoManipulado";
+            this.rbProdutoManipulado.Size = new System.Drawing.Size(185, 24);
+            this.rbProdutoManipulado.TabIndex = 6;
+            this.rbProdutoManipulado.TabStop = true;
+            this.rbProdutoManipulado.Text = "Produtos Manipulados";
+            this.rbProdutoManipulado.UseVisualStyleBackColor = true;
+            this.rbProdutoManipulado.CheckedChanged += new System.EventHandler(this.rbProdutoManipulado_CheckedChanged);
             // 
             // rbProdutosControlados
             // 
@@ -376,7 +417,7 @@
             this.btnManiBaixa.Name = "btnManiBaixa";
             this.btnManiBaixa.Size = new System.Drawing.Size(247, 38);
             this.btnManiBaixa.TabIndex = 21;
-            this.btnManiBaixa.Text = "Manipulação / Baixa";
+            this.btnManiBaixa.Text = "Baixa";
             this.btnManiBaixa.UseVisualStyleBackColor = true;
             this.btnManiBaixa.Visible = false;
             this.btnManiBaixa.Click += new System.EventHandler(this.btnManiBaixa_Click);
@@ -427,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFlechaExpand)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -463,6 +505,9 @@
         private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.Button btnManiBaixa;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnManipulacao;
+        private System.Windows.Forms.RadioButton rbProdutoManipulado;
     }
 }
 
