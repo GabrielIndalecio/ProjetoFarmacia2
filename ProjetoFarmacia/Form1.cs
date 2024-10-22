@@ -111,7 +111,34 @@ namespace ProjetoFarmacia
             dgvProdutos.Columns["data_fabricacao_controlado"].DisplayIndex = 6;
             dgvProdutos.Columns["data_entrada_controlado"].DisplayIndex = 7;
         }
-        
+        private void ConfigurarDataGridManipulado() // ARRUMAR ISSO AQUI.
+        {
+            dgvProdutos.DefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+
+            dgvProdutos.RowHeadersWidth = 25;
+
+            dgvProdutos.Columns["id_manipulado"].Visible = false;
+            dgvProdutos.Columns["nome_manipulado"].HeaderText = "Nome";
+            dgvProdutos.Columns["unidade_manipulado"].HeaderText = "Unidade";
+            dgvProdutos.Columns["estoque_manipulado"].HeaderText = "Estoque";
+            dgvProdutos.Columns["datavalidade_manipulado"].HeaderText = "Validade";
+            dgvProdutos.Columns["lote_manipulado"].HeaderText = "Lote";
+            dgvProdutos.Columns["datafabricacao_manipulado"].HeaderText = "Fabricação";
+            dgvProdutos.Columns["responsavel_manipulado"].Visible = false;
+            dgvProdutos.Columns["local_manipulado"].Visible = false;
+            dgvProdutos.Columns["temperatura_manipulado"].Visible = false;
+            dgvProdutos.Columns["manipulado_controlado"].HeaderText = "Controlado";
+
+            dgvProdutos.Columns["nome_manipulado"].DisplayIndex = 0;
+            dgvProdutos.Columns["unidade_manipulado"].DisplayIndex = 1;
+            dgvProdutos.Columns["estoque_manipulado"].DisplayIndex = 2;
+            dgvProdutos.Columns["datavalidade_manipulado"].DisplayIndex = 3;
+            dgvProdutos.Columns["lote_manipulado"].DisplayIndex = 4;
+            dgvProdutos.Columns["datafabricacao_manipulado"].DisplayIndex = 5;
+            dgvProdutos.Columns["manipulado_controlado"].DisplayIndex = 6;
+            
+        }
+
         private void ListarProduto()
         {
             
@@ -158,6 +185,7 @@ namespace ProjetoFarmacia
             dsProdutosSetor = produtocrud.BuscarSetor(Busca);
             dgvProdutos.DataSource = dsProdutosSetor;
             dgvProdutos.DataMember = "entrada_medicamento";
+            ConfigurarDataGrid();
         }
 
         private void rbMateria_CheckedChanged(object sender, EventArgs e)
@@ -170,6 +198,7 @@ namespace ProjetoFarmacia
             dsProdutosSetor = produtocrud.BuscarSetor(Busca);
             dgvProdutos.DataSource = dsProdutosSetor;
             dgvProdutos.DataMember = "entrada_medicamento";
+            ConfigurarDataGrid();
         }
 
         private void rbUtensilios_CheckedChanged(object sender, EventArgs e)
@@ -183,7 +212,7 @@ namespace ProjetoFarmacia
             dsProdutosSetor = produtocrud.BuscarSetor(Busca);
             dgvProdutos.DataSource = dsProdutosSetor;
             dgvProdutos.DataMember = "entrada_medicamento";
-
+            ConfigurarDataGrid();
 
         }
 
@@ -226,7 +255,7 @@ namespace ProjetoFarmacia
             btnCadastro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCadastro.Width, btnCadastro.Height, 30, 30));
             btnLista.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLista.Width, btnLista.Height, 30, 30));
             btnResetFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnResetFiltro.Width, btnResetFiltro.Height, 30, 30));
-
+            btnManipulacao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnManipulacao.Width, btnManipulacao.Height, 30, 30));
 
             sidebar.BringToFront();
             
@@ -346,10 +375,28 @@ namespace ProjetoFarmacia
             if (dgvProdutos.SelectedRows.Count > 0)
             {
                 string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
-                frmManipulados manipulados = new frmManipulados(codigo);
+                frmBaixa manipulados = new frmBaixa(codigo);
                 manipulados.ShowDialog();
                 ListarProduto();
             }
+        }
+
+        private void btnManipulacao_Click(object sender, EventArgs e)
+        {
+            frmManipulados frmmanipulado = new frmManipulados(nomeUsuario);
+            frmmanipulado.ShowDialog();
+            ListarProduto();
+        }
+
+        private void rbProdutoManipulado_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            ManipuladoCRUD manipuladocrud = new ManipuladoCRUD(_conexao);
+            string busca3 = txbNomePesquisa.Text.ToString();
+            DataSet dsProduto3 = new DataSet();
+            dsProduto3 = manipuladocrud.BuscaUnicaProdutoManipulacao(busca3);
+            dgvProdutos.DataSource = dsProduto3.Tables[0];
+            ConfigurarDataGridManipulado();
         }
     }
 }

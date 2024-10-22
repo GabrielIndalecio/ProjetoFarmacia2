@@ -18,6 +18,7 @@ namespace ProjetoFarmacia
         {
             InitializeComponent();
             ExibirValidade();
+            ExibirQuantidade();
             
         }
         private void ExibirValidade()
@@ -37,6 +38,23 @@ namespace ProjetoFarmacia
                 if((validade - dataatual).TotalDays <= diasparavencer)
                 {
                     lbLista.Items.Add($"{nomeProduto} - Vence em: {validade.ToShortDateString()}");
+                }
+            }
+        }
+        private void ExibirQuantidade()
+        {
+            ProdutoCRUD prodcrud = new ProdutoCRUD(_conexao);
+            DataTable Produtos = prodcrud.VerificarEstoque();
+
+            int quantidademin = 5;
+
+            foreach(DataRow row in Produtos.Rows)
+            {
+                int quantidadeatual = Convert.ToInt32(row["Quantidade"]);
+                string nomeProduto2 = row["Nome"].ToString();
+                if(quantidadeatual <= quantidademin)
+                {
+                    lbLista.Items.Add($"{nomeProduto2} - Quantidade Baixa {quantidadeatual}");
                 }
             }
         }
