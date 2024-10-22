@@ -117,26 +117,26 @@ namespace ProjetoFarmacia
 
             dgvProdutos.RowHeadersWidth = 25;
 
-            dgvProdutos.Columns["id_produto"].Visible = false;
-            dgvProdutos.Columns["nome_medicamento"].HeaderText = "Nome";
-            dgvProdutos.Columns["setor_medicamento"].HeaderText = "Setor";
-            dgvProdutos.Columns["unidade_medicamento"].HeaderText = "Unidade";
-            dgvProdutos.Columns["estoque_medicamento"].HeaderText = "Estoque";
-            dgvProdutos.Columns["datavalidade_medicamento"].HeaderText = "Validade";
-            dgvProdutos.Columns["lote_medicamento"].HeaderText = "Lote";
-            dgvProdutos.Columns["data_fabricacao"].HeaderText = "Fabricação";
-            dgvProdutos.Columns["responsavel_medicamento"].Visible = false;
-            dgvProdutos.Columns["local_medicamento"].Visible = false;
-            dgvProdutos.Columns["temperatura_medicamento"].Visible = false;
+            dgvProdutos.Columns["id_manipulado"].Visible = false;
+            dgvProdutos.Columns["nome_manipulado"].HeaderText = "Nome";
+            dgvProdutos.Columns["unidade_manipulado"].HeaderText = "Unidade";
+            dgvProdutos.Columns["estoque_manipulado"].HeaderText = "Estoque";
+            dgvProdutos.Columns["datavalidade_manipulado"].HeaderText = "Validade";
+            dgvProdutos.Columns["lote_manipulado"].HeaderText = "Lote";
+            dgvProdutos.Columns["datafabricacao_manipulado"].HeaderText = "Fabricação";
+            dgvProdutos.Columns["responsavel_manipulado"].Visible = false;
+            dgvProdutos.Columns["local_manipulado"].Visible = false;
+            dgvProdutos.Columns["temperatura_manipulado"].Visible = false;
+            dgvProdutos.Columns["manipulado_controlado"].HeaderText = "Controlado";
 
-            dgvProdutos.Columns["nome_medicamento"].DisplayIndex = 0;
-            dgvProdutos.Columns["setor_medicamento"].DisplayIndex = 1;
-            dgvProdutos.Columns["unidade_medicamento"].DisplayIndex = 2;
-            dgvProdutos.Columns["estoque_medicamento"].DisplayIndex = 3;
-            dgvProdutos.Columns["datavalidade_medicamento"].DisplayIndex = 4;
-            dgvProdutos.Columns["lote_medicamento"].DisplayIndex = 5;
-            dgvProdutos.Columns["data_fabricacao"].DisplayIndex = 6;
-            dgvProdutos.Columns["data_entrada"].DisplayIndex = 7;
+            dgvProdutos.Columns["nome_manipulado"].DisplayIndex = 0;
+            dgvProdutos.Columns["unidade_manipulado"].DisplayIndex = 1;
+            dgvProdutos.Columns["estoque_manipulado"].DisplayIndex = 2;
+            dgvProdutos.Columns["datavalidade_manipulado"].DisplayIndex = 3;
+            dgvProdutos.Columns["lote_manipulado"].DisplayIndex = 4;
+            dgvProdutos.Columns["datafabricacao_manipulado"].DisplayIndex = 5;
+            dgvProdutos.Columns["manipulado_controlado"].DisplayIndex = 6;
+            
         }
 
         private void ListarProduto()
@@ -390,11 +390,13 @@ namespace ProjetoFarmacia
 
         private void rbProdutoManipulado_CheckedChanged(object sender, EventArgs e)
         {
+            
             ManipuladoCRUD manipuladocrud = new ManipuladoCRUD(_conexao);
             string busca3 = txbNomePesquisa.Text.ToString();
             DataSet dsProduto3 = new DataSet();
             dsProduto3 = manipuladocrud.BuscaUnicaProdutoManipulacao(busca3);
             dgvProdutos.DataSource = dsProduto3.Tables[0];
+            ConfigurarDataGridManipulado();
         }
     }
 }

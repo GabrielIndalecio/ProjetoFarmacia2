@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManipulados));
             this.dgvManipulados = new System.Windows.Forms.DataGridView();
             this.txbNomeMani = new System.Windows.Forms.TextBox();
             this.txbQuantidadeMani = new System.Windows.Forms.TextBox();
@@ -286,10 +287,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(155, 26);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(178, 31);
+            this.label10.Size = new System.Drawing.Size(224, 39);
             this.label10.TabIndex = 50;
             this.label10.Text = "Manipulação";
             // 
@@ -344,6 +345,7 @@
             this.Controls.Add(this.txbQuantidadeMani);
             this.Controls.Add(this.txbNomeMani);
             this.Controls.Add(this.dgvManipulados);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1258, 690);
             this.MinimumSize = new System.Drawing.Size(1258, 690);
             this.Name = "frmManipulados";

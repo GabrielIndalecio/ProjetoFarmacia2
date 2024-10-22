@@ -452,6 +452,8 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1270, 720);
             this.MinimumSize = new System.Drawing.Size(1270, 720);
             this.Name = "frmTelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -269,5 +269,22 @@ namespace Data
             }
             catch (Exception ex) { throw new Exception("Erro" + ex); }
         }
+        public DataTable VerificarEstoque() 
+        {
+            DataTable dataset = new DataTable();
+
+            const string query = @"SELECT nome_medicamento AS Nome, estoque_medicamento AS Quantidade FROM entrada_medicamento UNION ALL SELECT nome_medicamento_controlado AS Nome, estoque_medicamento_controlado AS Quantidade FROM medicamento_controlado";
+            try
+            {
+                using(var conexaoBD  = new SqlConnection(_conexao))
+                using(var comandosql = new SqlCommand( query, conexaoBD))
+                using(SqlDataAdapter adapter = new SqlDataAdapter(comandosql))
+                {
+                    adapter.Fill(dataset);
+                }
+            }
+            catch(Exception ex) { throw new Exception($"Erro {ex.Message}", ex); }
+            return dataset;
+        }
     }
 }
