@@ -292,18 +292,37 @@ namespace ProjetoFarmacia
 
         private void btnInformacao_Click(object sender, EventArgs e)
         {
-            if(dgvProdutos.SelectedRows.Count > 0)
+            if(rbProdutosControlados.Checked == true)
             {
-                string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
-                frmTelaInformacao informacao = new frmTelaInformacao(codigo);
-                informacao.ShowDialog();
+                if (dgvProdutos.SelectedRows.Count > 0)
+                {
+                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento_controlado"].Value.ToString();
+                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
+                    informacao.ShowDialog();
 
-                ListarProduto();
+                    ListarProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um registro para alterar.");
+                }
             }
             else
             {
-                MessageBox.Show("Selecione um registro para alterar.");
+                if (dgvProdutos.SelectedRows.Count > 0)
+                {
+                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
+                    informacao.ShowDialog();
+
+                    ListarProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um registro para alterar.");
+                }
             }
+            
             
         }
 
@@ -390,13 +409,21 @@ namespace ProjetoFarmacia
 
         private void rbProdutoManipulado_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbProdutoManipulado.Checked == true)
+            {
+                btnInformacao.Visible = false;
+            }
+            else
+            {
+                
+            }
             ManipuladoCRUD manipuladocrud = new ManipuladoCRUD(_conexao);
             string busca3 = txbNomePesquisa.Text.ToString();
             DataSet dsProduto3 = new DataSet();
             dsProduto3 = manipuladocrud.BuscaUnicaProdutoManipulacao(busca3);
             dgvProdutos.DataSource = dsProduto3.Tables[0];
             ConfigurarDataGridManipulado();
+            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTelaInformacao));
             this.label10 = new System.Windows.Forms.Label();
             this.txtNomeRespInf = new System.Windows.Forms.TextBox();
             this.cbProdutoControlado = new System.Windows.Forms.CheckBox();
@@ -416,8 +417,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTelaInformacao";
-            this.Text = "frmTelaInformacao";
+            this.Text = "Informação";
             this.Load += new System.EventHandler(this.frmTelaInformacao_Load);
             this.gpsetor.ResumeLayout(false);
             this.gpsetor.PerformLayout();

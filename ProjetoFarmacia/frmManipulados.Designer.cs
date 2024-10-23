@@ -271,7 +271,7 @@
             this.txbResponsavelMani.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbResponsavelMani.Location = new System.Drawing.Point(77, 510);
             this.txbResponsavelMani.Name = "txbResponsavelMani";
-            this.txbResponsavelMani.Size = new System.Drawing.Size(340, 26);
+            this.txbResponsavelMani.Size = new System.Drawing.Size(302, 26);
             this.txbResponsavelMani.TabIndex = 48;
             // 
             // label9
@@ -297,7 +297,7 @@
             // btnSalvarMani
             // 
             this.btnSalvarMani.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarMani.Location = new System.Drawing.Point(528, 501);
+            this.btnSalvarMani.Location = new System.Drawing.Point(454, 565);
             this.btnSalvarMani.Name = "btnSalvarMani";
             this.btnSalvarMani.Size = new System.Drawing.Size(89, 35);
             this.btnSalvarMani.TabIndex = 51;

@@ -122,7 +122,7 @@ namespace ProjetoFarmacia
                 }
                 else
                 {
-                    MessageBox.Show("Email ou senha Incorretos!");
+                    MessageBox.Show("Email ou senha Incorretos!","Falha no Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -141,7 +141,7 @@ namespace ProjetoFarmacia
                 }
                 else
                 {
-                    MessageBox.Show("Email ou senha Incorretos!");
+                    MessageBox.Show("Email ou senha Incorretos!", "Falha no Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

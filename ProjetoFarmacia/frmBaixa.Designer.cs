@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBaixa));
             this.txtNomeMani = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtQuantidadeAtual = new System.Windows.Forms.TextBox();
@@ -167,9 +168,10 @@
             this.Controls.Add(this.txtQuantidadeAtual);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.txtNomeMani);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manipulação";
+            this.Text = "Baixa";
             this.ResumeLayout(false);
             this.PerformLayout();
 
