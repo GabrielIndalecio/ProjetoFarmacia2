@@ -182,3 +182,113 @@ C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\De
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaInformacao.resources
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmManipulados.resources
 C:\Users\gabriel.sindalecio\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmBaixa.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.exe.config
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.exe
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.pdb
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\MySql.Data.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Buffers.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Memory.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ZstdSharp.dll
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.pdb
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.dll.config
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.pdb
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\MySql.Data.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Buffers.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Memory.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.AssemblyReference.cache
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaPrincipal.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmCadastro.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmListaCompra.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmLogin.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmBaixa.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmManipulados.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaInformacao.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.Properties.Resources.resources
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.GenerateResource.cache
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.CoreCompileInputs.cache
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoF.8FC9EDBB.Up2Date
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.exe
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.pdb
+C:\Users\Pichau\source\repos\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Guna.UI2.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.exe.config
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.exe
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ProjetoFarmacia.pdb
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Guna.UI2.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\MySql.Data.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Buffers.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Data.SqlClient.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.IO.Pipelines.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Memory.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\ZstdSharp.dll
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.pdb
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Data.dll.config
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.pdb
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Google.Protobuf.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\MySql.Data.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Buffers.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Data.SqlClient.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.IO.Pipelines.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Memory.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.AssemblyReference.cache
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaPrincipal.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmCadastro.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmListaCompra.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmLogin.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmBaixa.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmManipulados.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.frmTelaInformacao.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.Properties.Resources.resources
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.GenerateResource.cache
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.csproj.CopyComplete
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.exe
+C:\Users\gabriel.sindalecio\source\repos\Mostrar pros MLKS\ProjetoFarmacia2\ProjetoFarmacia\obj\Debug\ProjetoFarmacia.pdb

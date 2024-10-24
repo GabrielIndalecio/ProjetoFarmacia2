@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTelaPrincipal));
-            this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbMaterialConsumo = new System.Windows.Forms.RadioButton();
             this.rbUtensilios = new System.Windows.Forms.RadioButton();
@@ -51,8 +53,6 @@
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.lbl_NomePrincipal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbNomePesquisa = new System.Windows.Forms.TextBox();
-            this.btnInformacao = new System.Windows.Forms.Button();
             this.btnResetFiltro = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbProdutoManipulado = new System.Windows.Forms.RadioButton();
@@ -61,7 +61,10 @@
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.btnManiBaixa = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.dgvProdutos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txbNomePesquisa = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnInformacao = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.groupBox2.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -73,24 +76,13 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvProdutos
-            // 
-            this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.Location = new System.Drawing.Point(377, 22);
-            this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.ReadOnly = true;
-            this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(869, 646);
-            this.dgvProdutos.TabIndex = 1;
-            this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
-            this.dgvProdutos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProdutos_CellFormatting);
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.rbMaterialConsumo);
             this.groupBox2.Controls.Add(this.rbUtensilios);
             this.groupBox2.Controls.Add(this.rbMateria);
@@ -109,7 +101,6 @@
             this.rbMaterialConsumo.Name = "rbMaterialConsumo";
             this.rbMaterialConsumo.Size = new System.Drawing.Size(177, 24);
             this.rbMaterialConsumo.TabIndex = 2;
-            this.rbMaterialConsumo.TabStop = true;
             this.rbMaterialConsumo.Text = "Material de Consumo";
             this.rbMaterialConsumo.UseVisualStyleBackColor = true;
             this.rbMaterialConsumo.CheckedChanged += new System.EventHandler(this.rbMaterialConsumo_CheckedChanged);
@@ -121,7 +112,6 @@
             this.rbUtensilios.Name = "rbUtensilios";
             this.rbUtensilios.Size = new System.Drawing.Size(96, 24);
             this.rbUtensilios.TabIndex = 1;
-            this.rbUtensilios.TabStop = true;
             this.rbUtensilios.Text = "Utensílios";
             this.rbUtensilios.UseVisualStyleBackColor = true;
             this.rbUtensilios.CheckedChanged += new System.EventHandler(this.rbUtensilios_CheckedChanged);
@@ -133,7 +123,6 @@
             this.rbMateria.Name = "rbMateria";
             this.rbMateria.Size = new System.Drawing.Size(124, 24);
             this.rbMateria.TabIndex = 0;
-            this.rbMateria.TabStop = true;
             this.rbMateria.Text = "Matéria Prima";
             this.rbMateria.UseVisualStyleBackColor = true;
             this.rbMateria.CheckedChanged += new System.EventHandler(this.rbMateria_CheckedChanged);
@@ -150,8 +139,7 @@
             // 
             // sidebar
             // 
-            this.sidebar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.sidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sidebar.BackColor = System.Drawing.Color.White;
             this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
@@ -227,6 +215,7 @@
             // 
             // btnCadastro
             // 
+            this.btnCadastro.BackColor = System.Drawing.Color.White;
             this.btnCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastro.Image")));
@@ -237,7 +226,7 @@
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Text = "Cadastrar Produto";
             this.btnCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastro.UseVisualStyleBackColor = true;
+            this.btnCadastro.UseVisualStyleBackColor = false;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click_1);
             // 
             // panel3
@@ -250,6 +239,7 @@
             // 
             // btnLista
             // 
+            this.btnLista.BackColor = System.Drawing.Color.White;
             this.btnLista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLista.Image = ((System.Drawing.Image)(resources.GetObject("btnLista.Image")));
@@ -260,7 +250,7 @@
             this.btnLista.TabIndex = 1;
             this.btnLista.Text = "Lista de Compra";
             this.btnLista.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLista.UseVisualStyleBackColor = true;
+            this.btnLista.UseVisualStyleBackColor = false;
             this.btnLista.Click += new System.EventHandler(this.btnLista_Click_1);
             // 
             // panel5
@@ -273,6 +263,7 @@
             // 
             // btnManipulacao
             // 
+            this.btnManipulacao.BackColor = System.Drawing.Color.White;
             this.btnManipulacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnManipulacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManipulacao.Image = ((System.Drawing.Image)(resources.GetObject("btnManipulacao.Image")));
@@ -283,7 +274,7 @@
             this.btnManipulacao.TabIndex = 0;
             this.btnManipulacao.Text = "Cadastrar Manipulação";
             this.btnManipulacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnManipulacao.UseVisualStyleBackColor = true;
+            this.btnManipulacao.UseVisualStyleBackColor = false;
             this.btnManipulacao.Click += new System.EventHandler(this.btnManipulacao_Click);
             // 
             // sidebarTimer
@@ -293,9 +284,9 @@
             // lbl_NomePrincipal
             // 
             this.lbl_NomePrincipal.AutoSize = true;
-            this.lbl_NomePrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_NomePrincipal.BackColor = System.Drawing.Color.White;
             this.lbl_NomePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomePrincipal.Location = new System.Drawing.Point(96, 22);
+            this.lbl_NomePrincipal.Location = new System.Drawing.Point(94, 41);
             this.lbl_NomePrincipal.Name = "lbl_NomePrincipal";
             this.lbl_NomePrincipal.Size = new System.Drawing.Size(57, 20);
             this.lbl_NomePrincipal.TabIndex = 13;
@@ -304,7 +295,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(96, 149);
             this.label1.Name = "label1";
@@ -312,33 +303,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
-            // txbNomePesquisa
-            // 
-            this.txbNomePesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNomePesquisa.Location = new System.Drawing.Point(97, 172);
-            this.txbNomePesquisa.Name = "txbNomePesquisa";
-            this.txbNomePesquisa.Size = new System.Drawing.Size(274, 26);
-            this.txbNomePesquisa.TabIndex = 1;
-            this.txbNomePesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbNomePesquisa_KeyDown);
-            // 
-            // btnInformacao
-            // 
-            this.btnInformacao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInformacao.BackgroundImage")));
-            this.btnInformacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnInformacao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInformacao.Location = new System.Drawing.Point(322, 324);
-            this.btnInformacao.Name = "btnInformacao";
-            this.btnInformacao.Size = new System.Drawing.Size(46, 48);
-            this.btnInformacao.TabIndex = 15;
-            this.btnInformacao.UseVisualStyleBackColor = true;
-            this.btnInformacao.Visible = false;
-            this.btnInformacao.Click += new System.EventHandler(this.btnInformacao_Click);
-            // 
             // btnResetFiltro
             // 
-            this.btnResetFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.btnResetFiltro.BackColor = System.Drawing.Color.White;
             this.btnResetFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnResetFiltro.Image")));
-            this.btnResetFiltro.Location = new System.Drawing.Point(309, 222);
+            this.btnResetFiltro.Location = new System.Drawing.Point(298, 223);
             this.btnResetFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.btnResetFiltro.Name = "btnResetFiltro";
             this.btnResetFiltro.Size = new System.Drawing.Size(44, 40);
@@ -348,7 +317,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.rbProdutoManipulado);
             this.groupBox1.Controls.Add(this.rbProdutosControlados);
             this.groupBox1.Controls.Add(this.radioButton1);
@@ -412,19 +381,21 @@
             // 
             // btnManiBaixa
             // 
+            this.btnManiBaixa.BackColor = System.Drawing.Color.White;
             this.btnManiBaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManiBaixa.Location = new System.Drawing.Point(97, 510);
             this.btnManiBaixa.Name = "btnManiBaixa";
-            this.btnManiBaixa.Size = new System.Drawing.Size(247, 38);
+            this.btnManiBaixa.Size = new System.Drawing.Size(200, 38);
             this.btnManiBaixa.TabIndex = 21;
             this.btnManiBaixa.Text = "Baixa";
-            this.btnManiBaixa.UseVisualStyleBackColor = true;
+            this.btnManiBaixa.UseVisualStyleBackColor = false;
             this.btnManiBaixa.Visible = false;
             this.btnManiBaixa.Click += new System.EventHandler(this.btnManiBaixa_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(95, 99);
             this.label2.Name = "label2";
@@ -432,26 +403,136 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Filtros:";
             // 
+            // dgvProdutos
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvProdutos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProdutos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProdutos.ColumnHeadersHeight = 4;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProdutos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvProdutos.Location = new System.Drawing.Point(377, 22);
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.RowHeadersVisible = false;
+            this.dgvProdutos.Size = new System.Drawing.Size(868, 645);
+            this.dgvProdutos.TabIndex = 25;
+            this.dgvProdutos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvProdutos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvProdutos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvProdutos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvProdutos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvProdutos.ThemeStyle.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvProdutos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvProdutos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvProdutos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvProdutos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProdutos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvProdutos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvProdutos.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvProdutos.ThemeStyle.ReadOnly = true;
+            this.dgvProdutos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvProdutos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvProdutos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProdutos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvProdutos.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvProdutos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvProdutos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick_1);
+            this.dgvProdutos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProdutos_CellFormatting_1);
+            // 
+            // txbNomePesquisa
+            // 
+            this.txbNomePesquisa.Animated = true;
+            this.txbNomePesquisa.BackColor = System.Drawing.Color.White;
+            this.txbNomePesquisa.BorderRadius = 10;
+            this.txbNomePesquisa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbNomePesquisa.DefaultText = "";
+            this.txbNomePesquisa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbNomePesquisa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbNomePesquisa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbNomePesquisa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbNomePesquisa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbNomePesquisa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txbNomePesquisa.ForeColor = System.Drawing.Color.Black;
+            this.txbNomePesquisa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbNomePesquisa.Location = new System.Drawing.Point(97, 172);
+            this.txbNomePesquisa.Name = "txbNomePesquisa";
+            this.txbNomePesquisa.PasswordChar = '\0';
+            this.txbNomePesquisa.PlaceholderText = "";
+            this.txbNomePesquisa.SelectedText = "";
+            this.txbNomePesquisa.Size = new System.Drawing.Size(233, 26);
+            this.txbNomePesquisa.TabIndex = 26;
+            this.txbNomePesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbNomePesquisa_KeyDown_1);
+            // 
+            // btnInformacao
+            // 
+            this.btnInformacao.Animated = true;
+            this.btnInformacao.BackColor = System.Drawing.Color.White;
+            this.btnInformacao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInformacao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInformacao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInformacao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInformacao.FillColor = System.Drawing.Color.Gainsboro;
+            this.btnInformacao.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnInformacao.ForeColor = System.Drawing.Color.White;
+            this.btnInformacao.Image = ((System.Drawing.Image)(resources.GetObject("btnInformacao.Image")));
+            this.btnInformacao.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnInformacao.Location = new System.Drawing.Point(309, 322);
+            this.btnInformacao.Name = "btnInformacao";
+            this.btnInformacao.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnInformacao.Size = new System.Drawing.Size(57, 54);
+            this.btnInformacao.TabIndex = 27;
+            this.btnInformacao.Visible = false;
+            this.btnInformacao.Click += new System.EventHandler(this.btnInformacao_Click_1);
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(-402, -39);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(774, 760);
+            this.guna2CirclePictureBox1.TabIndex = 29;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // frmTelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1254, 681);
+            this.Controls.Add(this.btnInformacao);
+            this.Controls.Add(this.txbNomePesquisa);
+            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnManiBaixa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnResetFiltro);
-            this.Controls.Add(this.btnInformacao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_NomePrincipal);
-            this.Controls.Add(this.txbNomePesquisa);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.guna2CirclePictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1270, 720);
             this.MinimumSize = new System.Drawing.Size(1270, 720);
@@ -459,7 +540,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Farmacia";
             this.Load += new System.EventHandler(this.frmTelaPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.sidebar.ResumeLayout(false);
@@ -473,13 +553,14 @@
             this.panel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbMaterialConsumo;
         private System.Windows.Forms.RadioButton rbUtensilios;
@@ -498,8 +579,6 @@
         private System.Windows.Forms.PictureBox pbReturnExpand;
         private System.Windows.Forms.Label lbl_NomePrincipal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbNomePesquisa;
-        private System.Windows.Forms.Button btnInformacao;
         private System.Windows.Forms.Button btnResetFiltro;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbProdutosControlados;
@@ -510,6 +589,10 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnManipulacao;
         private System.Windows.Forms.RadioButton rbProdutoManipulado;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvProdutos;
+        private Guna.UI2.WinForms.Guna2TextBox txbNomePesquisa;
+        private Guna.UI2.WinForms.Guna2CircleButton btnInformacao;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
     }
 }
 

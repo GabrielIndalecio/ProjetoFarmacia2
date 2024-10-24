@@ -54,6 +54,39 @@ namespace ProjetoFarmacia
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
+            
+            
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txbSenhaLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = true;
+            lblLogin.Text = "Cadastro";
+            panelLogin.Visible = false;
+        }
+
+        private void lblCadastroLogin_Click(object sender, EventArgs e)
+        {
+            panelCadastro.Visible = false;
+            lblLogin.Text = "Login";
+            panelLogin.Visible = true;
+        }
+
+        private void btnCadastro_Click_1(object sender, EventArgs e)
+        {
             if (cbCheckDocente.Checked)
             {
                 Docentes docentes = new Docentes();
@@ -94,7 +127,7 @@ namespace ProjetoFarmacia
                 {
                     alunos.nome_aluno = txbNomeCad.Text;
                     alunos.email_aluno = txbEmailCad.Text;
-                    alunos.senha_aluno= txbSenhaCad.Text;
+                    alunos.senha_aluno = txbSenhaCad.Text;
 
                     alunoscrud.IncluiAluno(alunos);
 
@@ -102,10 +135,9 @@ namespace ProjetoFarmacia
                     txbEmailCad.Text = string.Empty; txbNomeCad.Text = string.Empty; txbSenhaCad.Text = string.Empty;
                 }
             }
-            
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (cbDocenteLogin.Checked)
             {
@@ -122,7 +154,7 @@ namespace ProjetoFarmacia
                 }
                 else
                 {
-                    MessageBox.Show("Email ou senha Incorretos!","Falha no Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Email ou senha Incorretos!", "Falha no Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -146,26 +178,25 @@ namespace ProjetoFarmacia
             }
         }
 
-        private void txbSenhaLogin_KeyDown(object sender, KeyEventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            Application.Exit();
+        }
+
+        private void txbSenhaLogin_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
             {
-                btnLogin_Click(sender, e);
+                btnLogin_Click_1(sender, e);
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void txbSenhaCad_KeyDown(object sender, KeyEventArgs e)
         {
-            panelCadastro.Visible = true;
-            lblLogin.Text = "Cadastro";
-            panelLogin.Visible = false;
-        }
-
-        private void lblCadastroLogin_Click(object sender, EventArgs e)
-        {
-            panelCadastro.Visible = false;
-            lblLogin.Text = "Login";
-            panelLogin.Visible = true;
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCadastro_Click_1(sender, e);
+            }
         }
     }
 }

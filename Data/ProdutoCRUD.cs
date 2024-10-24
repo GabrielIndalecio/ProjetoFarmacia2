@@ -109,7 +109,7 @@ namespace Data
             try
             {
                 using (var conexaobD = new SqlConnection(_conexao))
-                using (var comandosql = new SqlCommand (query, conexaobD))
+                using (var comandosql = new SqlCommand(query, conexaobD))
                 {
                     comandosql.Parameters.AddWithValue("@cod", codigoProduto);
                     conexaobD.Open();

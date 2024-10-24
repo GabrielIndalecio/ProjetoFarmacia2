@@ -34,11 +34,11 @@ namespace ProjetoFarmacia
         {
             InitializeComponent();
             this.nomeUsuario = nomeUsuario;
-            lbl_NomePrincipal.Text = $"Bem-Vindo de volta,\n {nomeUsuario}!";
+            lbl_NomePrincipal.Text = $"Bem-Vindo,\n {nomeUsuario}!";
             ListarProduto();
             ConfigurarDataGrid();
             this.KeyDown += new KeyEventHandler(txbNomePesquisa_KeyDown);
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = SystemColors.ActiveCaption;
             
 
         }
@@ -172,7 +172,7 @@ namespace ProjetoFarmacia
 
         private void txbNomePesquisa_KeyDown(object sender, KeyEventArgs e)
         {
-            ListarProduto();
+            
         }
 
         private void rbMaterialConsumo_CheckedChanged(object sender, EventArgs e)
@@ -278,50 +278,12 @@ namespace ProjetoFarmacia
 
         private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvProdutos.SelectedRows.Count > 0)
-            {
-                btnInformacao.Visible = true;
-                btnManiBaixa.Visible = true;
-            }
-            else if(dgvProdutos.SelectedColumns.Count < 0)
-            {
-                btnInformacao.Visible = false;
-                btnManiBaixa.Visible= false;
-            }
+            
         }
 
         private void btnInformacao_Click(object sender, EventArgs e)
         {
-            if(rbProdutosControlados.Checked == true)
-            {
-                if (dgvProdutos.SelectedRows.Count > 0)
-                {
-                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento_controlado"].Value.ToString();
-                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
-                    informacao.ShowDialog();
-
-                    ListarProduto();
-                }
-                else
-                {
-                    MessageBox.Show("Selecione um registro para alterar.");
-                }
-            }
-            else
-            {
-                if (dgvProdutos.SelectedRows.Count > 0)
-                {
-                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
-                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
-                    informacao.ShowDialog();
-
-                    ListarProduto();
-                }
-                else
-                {
-                    MessageBox.Show("Selecione um registro para alterar.");
-                }
-            }
+            
             
             
         }
@@ -334,30 +296,7 @@ namespace ProjetoFarmacia
 
         private void dgvProdutos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProdutos.Columns[e.ColumnIndex].Name == "datavalidade_medicamento")
-            {
-                if(e.Value != null)
-                {
-                    DateTime dataValidade;
-                    if (DateTime.TryParse(e.Value.ToString(), out dataValidade))
-                    {
-                        TimeSpan diferenca = dataValidade - DateTime.Now;
-
-                        if (diferenca.Days < 20 && diferenca.Days >= 0)
-                        {
-                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
-
-                        }
-                        else if(diferenca.Days < 0)
-                        {
-                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
+            
             
             
         }
@@ -412,6 +351,7 @@ namespace ProjetoFarmacia
             if (rbProdutoManipulado.Checked == true)
             {
                 btnInformacao.Visible = false;
+                btnManiBaixa.Visible = false;
             }
             else
             {
@@ -424,6 +364,87 @@ namespace ProjetoFarmacia
             dgvProdutos.DataSource = dsProduto3.Tables[0];
             ConfigurarDataGridManipulado();
             
+        }
+
+        private void dgvProdutos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProdutos.SelectedRows.Count > 0)
+            {
+                btnInformacao.Visible = true;
+                btnManiBaixa.Visible = true;
+            }
+            else if (dgvProdutos.SelectedColumns.Count < 0)
+            {
+                btnInformacao.Visible = false;
+                btnManiBaixa.Visible = false;
+            }
+        }
+
+        private void dgvProdutos_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProdutos.Columns[e.ColumnIndex].Name == "datavalidade_medicamento")
+            {
+                if (e.Value != null)
+                {
+                    DateTime dataValidade;
+                    if (DateTime.TryParse(e.Value.ToString(), out dataValidade))
+                    {
+                        TimeSpan diferenca = dataValidade - DateTime.Now;
+
+                        if (diferenca.Days < 20 && diferenca.Days >= 0)
+                        {
+                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+
+                        }
+                        else if (diferenca.Days < 0)
+                        {
+                            dgvProdutos.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+        private void txbNomePesquisa_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            ListarProduto();
+        }
+
+        private void btnInformacao_Click_1(object sender, EventArgs e)
+        {
+            if (rbProdutosControlados.Checked == true)
+            {
+                if (dgvProdutos.SelectedRows.Count > 0)
+                {
+                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento_controlado"].Value.ToString();
+                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
+                    informacao.ShowDialog();
+
+                    ListarProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um registro para alterar.");
+                }
+            }
+            else
+            {
+                if (dgvProdutos.SelectedRows.Count > 0)
+                {
+                    string codigo = dgvProdutos.CurrentRow.Cells["nome_medicamento"].Value.ToString();
+                    frmTelaInformacao informacao = new frmTelaInformacao(codigo);
+                    informacao.ShowDialog();
+
+                    ListarProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um registro para alterar.");
+                }
+            }
         }
     }
 }
